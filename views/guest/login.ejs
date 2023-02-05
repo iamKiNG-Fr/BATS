@@ -3,16 +3,30 @@
 <%- include('../partials/head.ejs') %> 
 <body>
     <h1>Login</h1>
-    <form action="/users" method="POST">
+
+    <%- include('../partials/guestNav.ejs') %> 
+
+    <% if(messages.success_msg){ %>
+        <%=  messages.success_msg %>
+     <% } %>
+ 
+     <% if(messages.error){ %>
+        <%= messages.error %>
+     <% } %>
+
+    <form action="/auth/login" method="POST">
         <div>
             <label for="email">Email</label>
-            <input type="text" name="first_name" id="email" required>
+            <input type="email" name="email" id="email" required>
         </div>
         <div>
             <label for="password">Password</label>
-            <input type="text" name="detail" id="password" required>
+            <input type="password" name="password" id="password" required>
         </div>
         <input type="submit" value="submit">
     </form>
+    <div>
+        <p>Not Registered? <a href="/auth/register">Register Here</a></p>
+    </div>
 </body>
 </html>
