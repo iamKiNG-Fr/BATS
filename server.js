@@ -18,11 +18,11 @@ app.use(express.urlencoded({extended: 'false'}))
 app.use(express.static('public'))
 app.use(express.json())
 
-
 //Routes
 app.use('/', guestRoutes)
 app.use('/auth', authRoutes)
 app.use('/users', userRoutes)
+
 
 app.listen(port, ()=>{
     console.log(`Listenng on port ${port}`);
