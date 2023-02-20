@@ -1,18 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs') %> 
+<%- include('../partials/) %> 
 <body>
     <h1>Register</h1>
 
-    <%- include('../partials/guestNav.ejs') %> 
-
-    <!-- <div class="errors">
-        < if(typeof errors != undefined){ %>
-            < errors.forEach(error => { %>
-                 <= error.message %>
-            < }) %>
-         < } %>
-    </div> -->
+    <div class="errors">
+        <% if(typeof errors != undefined){ %>
+            <% errors.forEach(error => { %>
+                 <%= error.message %>
+            <% }) %>
+         <% } %>
+    </div>
 
     <form action="/users" method="POST">
         <div class="personal-details">
@@ -95,8 +93,6 @@
         </div>
         <input type="submit" value="submit">
     </form>
-    <div>
-        <p>Have an account?<a href="/auth/login">Login here</a></p>
-    </div>
+    
 </body>
 </html>

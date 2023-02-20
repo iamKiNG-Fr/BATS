@@ -1,5 +1,5 @@
 const guest_index =  (req, res) => {
-    res.render('../views/guest/index', {title: 'BATS | Home'})
+    res.render('../views/guest/index.', {title: 'BATS | Home'})
 }
 
 const guest_track =  (req, res) => {

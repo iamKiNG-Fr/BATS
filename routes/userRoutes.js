@@ -42,31 +42,29 @@ router.post('', async (req, res) => {
         // form validation 
 
 
-        // if(password.length < 5 ){
-        //     errors.push({message : "passwords not long enough"})
-        // }
+        if(password.length < 5 ){
+            errors.push({message : "passwords not long enough"})
+        }
 
-        // if(password != cpassword ){
-        //     errors.push({message : "passwords do not match"})
-        // }
+        if(password != cpassword ){
+            errors.push({message : "passwords do not match"})
+        }
 
-        // if(errors.length > 0 ){
-        //     console.log(error);
-        //     // res.render('../views/guest/register', {errors})
-        // }
+        if(errors.length > 0 ){
+            console.log(error);
+            // res.render('../views/guest/register', {errors})
+        }
        
-        // // Form validaiton passed
-        // else{
+        // Form validaiton passed
+        else{
 
             let hashedPassword = await bcrypt.hash(password, 10)
 
             const newuser = await pool.query(" INSERT INTO users (fname, lname, dob, phone, email, country, state_of_residence, program, faculty, course, matric, gradyear, mascot, occupation, job_desc, office_phone, office_address, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17, $18)",[fname, lname, dob, phone, email, country, state_of_residence, program, faculty, course, matric, gradyear, mascot, occupation, job_desc, office_phone, office_address, hashedPassword])  
             
-            req.flash('success_msg','You are now registered, please log in')
-
-            res.redirect('/auth/login')
+            console.log('successfully registered')
         
-        // }
+        }
         
     } catch (err){
         console.error(err.message)
