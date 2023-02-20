@@ -9,9 +9,8 @@ const flash = require('express-flash')
 const app = express()
 
 //passport
-const initializePassport = require('../passporConfig')
-
-initializePassport(passport)
+const initialize= require('../passporConfig')
+initialize(passport)
 
 //middleware
 app.use(session({

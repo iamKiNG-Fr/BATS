@@ -2,21 +2,20 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
 
-const { pool } = require("../model/dbConfig")
-
+const db = require('../config/dbConfig')
+const bats = require('../models/bats')
 
 const authController = require('../controllers/authControllers')
 
 //get all users
-router.get('', async (req, res) => {
-    try{
-        const allUsers = await pool.query("SELECT * FROM users ")  
-        
-       res.json(allUsers.rows)
-        
-    } catch (err){
-        console.error(err.message)
-    }
+router.get('', (req, res) => {
+    bats.findAll()
+        .then(users => {
+            console.log(users)
+            res.Status(200)
+        })
+        .catch(err => console.log(err))
+   
 })
 
 //get single user

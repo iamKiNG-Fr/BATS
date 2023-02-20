@@ -1,12 +1,32 @@
 const localStrategy = require('passport-local').Strategy
-const {pool} = require('./model/dbConfig')
+const {pool} = require('./config/dbConfig')
 const bcrypt = require('bcrypt')
-// const { authenticate } = require('passport/lib')
+
+
+// passport.use(new localStrategy(verify(email, passport, done)=>{
+//     pool.query('SELECT * FROM users WHERE email = $1', [email], (err, result)=>{
+//     if (err) { throw done(err)}
+//     if (!result) { return done(null, false, {message : 'Incorrect Email'})}
+
+//     bcrypt.compare(password, user.password, (err, isMatch)=>{
+//     if(err){ throw err }
+//     if (isMatch){ return done(null, user)} 
+//     else{ return done(null, false, {message: "password incorrect"})}
+//      })
+    
+//     })
+// }))
 
 function initialize(passport){
+
+    console.log('im here');
+
     const authenticateUser = (email, password, done)=>{
         
         pool.query('SELECT * FROM users WHERE email = $1', [email], (err, result)=>{
+            
+            console.log('im here');
+
             if(err){
                 throw err
             }
@@ -38,18 +58,18 @@ function initialize(passport){
         passwordfield: 'password'
     }, authenticateUser))
 
-    passport.serializeUser((user, done) => done(null, user.id))
+    // passport.serializeUser((user, done) => done(null, user.id))
 
-    passport.deserializeUser((id, done) => {
-        pool.query(
-            "SELECT * FROM users WHERE id = $1", [id], (err, result)=>{
-                if(err){
-                    throw err
-                }
-                return done(null, result.rows[0])
-            }
-        )
-    })
+    // passport.deserializeUser((id, done) => {
+    //     pool.query(
+    //         "SELECT * FROM users WHERE id = $1", [id], (err, result)=>{
+    //             if(err){
+    //                 throw err
+    //             }
+    //             return done(null, result.rows[0])
+    //         }
+    //     )
+    // })
 }
 
 module.exports = initialize
