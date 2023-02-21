@@ -6,19 +6,19 @@ const flash = require('express-flash')
 const app = express()
 
 //passport
-const initialize= require('../passporConfig')
-initialize(passport)
+// const initialize= require('../passporConfig')
+// initialize(passport)
 
 //middleware
-app.use(session({
-    secret: process.env.SECRET,
-    resave: false,
-    saveUninitialized: false
-}))
-app.use(express.urlencoded({extended: false}))
-app.use(passport.initialize)
-app.use(passport.session)
-app.use(flash())
+// app.use(session({
+//     secret: process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: false
+// }))
+// app.use(express.urlencoded({extended: false}))
+// app.use(passport.initialize)
+// app.use(passport.session)
+// app.use(flash())
 
 //routes
 
