@@ -25,6 +25,9 @@ module.exports = {
       dob: {
         type: Sequelize.DATE
       },
+      gender: {
+        type: Sequelize.STRING
+      },
       phone: {
         type: Sequelize.STRING
       },
@@ -70,11 +73,11 @@ module.exports = {
       },
       job_desc: {
         allowNull: false,
-        type: Sequelize.BOOLEAN
+        type: Sequelize.STRING
       },
       emp_of_labour: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       vacancy: {
         type: Sequelize.STRING

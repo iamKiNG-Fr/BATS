@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/) %> 
+<%- include('../partials/head.ejs') %> 
+
 <body>
     <h1>Register</h1>
 
@@ -14,6 +15,16 @@
             </div>
             <div>
                 <input type="date" name="dob" id="dob" placeholder="Birthday"  required>
+            </div>
+            <div>
+                <label for="gender">Gender</label>
+                <br>
+                <input type="radio" name="gender" value="male" id="male">
+                <label for="male">Male</label>
+                <input type="radio" name="gender" value="female" id="female">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" value="others">
+                <label for="others">Prefer not to say</label>
             </div>
             <div>
                 <input type="number" name="phone" id="phone" placeholder="Phone Number"  required>
@@ -70,7 +81,7 @@
                 <input type="text" name="job_desc" id="job_desc" placeholder="Job Description">
             </div>
             <div>
-                <label for="">Are you an employer of emp_of_labour?</label>
+                <label for="">Are you an employer of employer of labour?</label>
                 <div>
                     <input type="radio" name="emp_of_labour" id="yes" value="1">
                     <label for="yes">Yes</label>
@@ -80,6 +91,7 @@
             </div>
             <div>
                 <label for="vacancy">What Available jobs can you provide?</label>
+                <br>
                 <textarea id="vacancy" name="vacancy" rows="4" cols="50"></textarea>
             </div>
             <div>
