@@ -24,8 +24,36 @@ module.exports = (sequelize, DataTypes) => {
     },
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    email: DataTypes.STRING,
-    password: DataTypes.STRING
+    email: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    password: DataTypes.STRING,
+    dob: DataTypes.DATE,
+    phone: DataTypes.STRING,
+    email: {
+      type: DataTypes.STRING,
+      unique: true
+    },
+    country: DataTypes.STRING,
+    state_of_residence: DataTypes.STRING,
+    program: DataTypes.STRING,
+    matric: DataTypes.STRING,
+    post: DataTypes.STRING,
+    grad_year: DataTypes.DATE,
+    mascot: DataTypes.STRING,
+    occupation: DataTypes.STRING,
+    job_desc: DataTypes.STRING,
+    emp_of_labour: DataTypes.BOOLEAN,
+    vacancy: DataTypes.STRING,
+    office_phone: DataTypes.STRING,
+    office_address: DataTypes.STRING,
+    password: DataTypes.STRING,
+    access: {
+      type: DataTypes.STRING,
+      defaultValue: "alumni"
+    },
+    profile_img: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'bats_users',

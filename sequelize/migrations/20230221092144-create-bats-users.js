@@ -30,7 +30,8 @@ module.exports = {
       },
       email: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       country: {
         allowNull: false,
@@ -46,7 +47,8 @@ module.exports = {
       },
       matric: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        unique: true
       },
       post: {
         type: Sequelize.STRING
@@ -64,7 +66,7 @@ module.exports = {
       },
       job_desc: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.BOOLEAN
       },
       emp_of_labour: {
         allowNull: false,
@@ -83,10 +85,6 @@ module.exports = {
       password: {
         allowNull: false,
         type: Sequelize.STRING
-      },
-      date_registered: {
-        allowNull: false,  
-        type: Sequelize.DATE
       },
       access: {
           allowNull: false,
