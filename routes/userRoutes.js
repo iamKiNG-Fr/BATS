@@ -2,30 +2,23 @@ const express = require('express')
 const router = express.Router()
 const bcrypt = require('bcrypt')
 
-const db = require('../config/dbConfig')
-const bats = require('../models/bats')
+const { sequelize, bats_users } = require('../sequelize/models') 
 
 const authController = require('../controllers/authControllers')
 
 //get all users
 router.get('', (req, res) => {
-    bats.findAll()
-        .then(users => {
-            console.log(users)
-            res.Status(200)
-        })
-        .catch(err => console.log(err))
-   
+
 })
 
 //get single user
-router.get('/:id', async (req, res) => {
+router.get('/:uuid', async (req, res) => {
     try{
-        const id = req.params.id
+        const uuid = req.params.uuid
 
-        const singleUser = await pool.query("SELECT * FROM users WHERE id = $1 ", [id])  
+        const singleUser = await bats_users.findOne({where: {uuid}})
         
-       res.json(singleUser.rows)
+       res.json(singleUser)
         
     } catch (err){
         console.error(err.message)
@@ -35,7 +28,7 @@ router.get('/:id', async (req, res) => {
 //add user
 router.post('', async (req, res) => {
     try{
-        const {fname, lname, dob, phone, email, country, state_of_residence, program, faculty, course, matric, gradyear, mascot, occupation, job_desc, office_phone, office_address, password, cpassword} = req.body
+        const {first_name, last_name, dob, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password, cpassword} = req.body
         
         let errors = []
        

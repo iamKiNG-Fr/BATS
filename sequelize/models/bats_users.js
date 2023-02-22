@@ -24,11 +24,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     first_name: DataTypes.STRING,
     last_name: DataTypes.STRING,
-    email: {
-      type: DataTypes.STRING,
-      unique: true
-    },
-    password: DataTypes.STRING,
     dob: DataTypes.DATE,
     phone: DataTypes.STRING,
     email: {
@@ -38,6 +33,7 @@ module.exports = (sequelize, DataTypes) => {
     country: DataTypes.STRING,
     state_of_residence: DataTypes.STRING,
     program: DataTypes.STRING,
+    course: DataTypes.STRING,
     matric: DataTypes.STRING,
     post: DataTypes.STRING,
     grad_year: DataTypes.DATE,

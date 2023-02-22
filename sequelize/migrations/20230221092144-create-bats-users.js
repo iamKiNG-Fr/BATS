@@ -45,6 +45,10 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      course:{
+        allowNull: false,
+        type: Sequelize.STRING
+      },
       matric: {
         allowNull: false,
         type: Sequelize.STRING,

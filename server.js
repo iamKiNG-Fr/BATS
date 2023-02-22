@@ -5,12 +5,11 @@ const app = express()
 const guestRoutes = require('./routes/guestRoutes')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
+const alumniRoutes = require('./routes/alumniRoutes')
 
 const port = process.env.PORT || 5000
 
 //Database
-const db = require('./config/dbConfig')
-
 const { sequelize, bats_users } = require('./sequelize/models') 
  
 const connectDb = async () => {
