@@ -1,11 +1,10 @@
 const express = require('express')
 const morgan = require('morgan')
-// const { pool } = require("./model/dbConfig")
 
 const app = express()
 const guestRoutes = require('./routes/guestRoutes')
 const authRoutes = require('./routes/authRoutes')
-// const userRoutes = require('./routes/userRoutes')
+const userRoutes = require('./routes/userRoutes')
 
 const port = process.env.PORT || 5000
 
@@ -16,14 +15,6 @@ const { sequelize, bats_users } = require('./sequelize/models')
  
 const connectDb = async () => {
     await sequelize.authenticate()
-    // console.log('checing database connection...');
-    // try{
-    //     sequelize.authenticate()
-    //     console.log('Database connection established....');
-    // } catch(err){
-    //     console.log('Database connection failed', err);
-    //     process.exit(1)
-    // }
 }
 
 //view engine
@@ -38,6 +29,8 @@ app.use(express.json())
 //Routes
 app.use('/', guestRoutes)
 app.use('/auth', authRoutes)
+app.use('/users', userRoutes)
+app.use('/alumni', alumniRoutes)
 app.post('/test', async(req, res)=>{
     const { first_name, last_name, email, password} = req.body
 
@@ -73,8 +66,6 @@ app.get('/test/:uuid', async(req, res)=>{
         return res.status(500).json({error: 'something went wrong'})
     }
 })
-// app.use('/users', userRoutes)
-// app.use('/alumni', alumniRoutes)
 
 
 app.listen(port, async ()=>{
