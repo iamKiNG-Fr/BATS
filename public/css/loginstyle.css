@@ -1,0 +1,128 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+html{
+    background-image: url('/img/asset/babcockbbs.png');
+}
+body{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    color: black;
+    background-color:rgba(30, 75, 152, 0.486);
+}
+
+.loginleft{
+    background-color: white;
+    width: 50%;
+    height: 100vh;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 4rem 4rem 0;
+}
+.logo{
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.logo img{
+    max-width: 5rem;
+    margin-right: 0.5rem;
+}
+
+.login{
+   
+}
+
+.login .input-field{
+    margin: 0.5rem 0rem;
+    width: 20rem;
+    height: 2.3rem;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 2px;
+    border-style: solid;
+    border-radius: 8px;
+}
+.input-field:hover{
+    border-style: solid;
+    border-color: #D69A3E;
+}
+
+.submit-area{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+}
+
+.submit-area a, a{
+    text-decoration: none;
+    color: rgb(94, 93, 93);
+}
+.submit-area a:hover{
+    color: #D69A3E;
+}
+a:hover{
+    color: #D69A3E;
+}
+
+
+.submit-btn{
+    height: 2rem;
+    width: 9rem;
+    background-color: #1772c7;
+    color: #ffffff;
+    border-radius: 2rem;
+    border: none;
+}
+.submit-btn:hover{
+    cursor: pointer;
+    background-color: #125B9E;
+}
+
+.login h2{
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.loginright{
+    background-color: rgba(13, 51, 118,0);
+    width: 50%;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reg-btn{
+    background-color: white;
+    width: 5.5rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-radius: 1rem;
+    align-self: flex-end;
+}
+
+.loginright img{
+    width: 300px;
+    
+}
+
+.textdesc{
+    color: white;
+}
+

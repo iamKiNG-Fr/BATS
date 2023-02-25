@@ -1,5 +1,13 @@
+if (process.env.NODE_ENV !== 'production'){
+    require('dotenv').config()
+}
+
 const express = require('express')
 const morgan = require('morgan')
+const flash = require('express-flash')
+const session = require('express-session')
+const passport = require('passport')
+const methodOverride = require('method-override')
 
 const app = express()
 const guestRoutes = require('./routes/guestRoutes')
@@ -20,50 +28,47 @@ const connectDb = async () => {
 app.set('view engine', 'ejs')
 
 //middleware
+app.use(express.static('public'))
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: 'false'}))
-app.use(express.static('public'))
 app.use(express.json())
+app.use(flash())
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
+
+//authfunctions
+function checkAuthenticated(req, res, next) {
+    if(req.isAuthenticated()){
+        return next()
+    }
+    res.redirect('/auth/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+    if(req.isAuthenticated()){
+        return res.redirect('/alumni/home')
+    }
+    next()
+}
 
 //Routes
 app.use('/', guestRoutes)
-app.use('/auth', authRoutes)
+app.use('/auth', checkNotAuthenticated, authRoutes)
 app.use('/users', userRoutes)
-app.use('/alumni', alumniRoutes)
-app.post('/test', async(req, res)=>{
-    const { first_name, last_name, email, password} = req.body
-
-    try{
-        const user = await bats_users.create({ first_name, last_name, email, password })
-
-        return res.json(user)
-    } catch(err){
-        console.log(err)
-        return res.status(500).json(err)
-    }
-})
-app.get('/test', async(req, res)=>{
-    try{
-        const users = await bats_users.findAll()
-
-        return res.json(users)
-
-    }catch(err){
-        return res.status(500).json({error: 'something went wrong'})
-    }
-})
-app.get('/test/:uuid', async(req, res)=>{
-    const uuid = req.params.uuid
-    try{
-        const user = await bats_users.findOne({
-            where: {uuid}
-        })
-
-        return res.json(user)
-
-    }catch(err){
-        return res.status(500).json({error: 'something went wrong'})
-    }
+app.use('/alumni', checkAuthenticated, alumniRoutes)
+app.get('/logout', (req, res, next)=>{
+    req.logout(err => {
+        if (err){
+            return next(err)
+        }
+        res.redirect('/')
+    })
 })
 
 

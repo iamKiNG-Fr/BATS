@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 
 const { sequelize, bats_users } = require('../sequelize/models') 
 
-const authController = require('../controllers/authControllers')
+// const authController = require('../controllers/authControllers')
 
 //get all users
 router.get('', async (req, res) => {
@@ -61,10 +61,11 @@ router.post('', async (req, res) => {
             let hashedPassword = await bcrypt.hash(password, 10)
            
             const user = await bats_users.create({ first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password: hashedPassword})
-
+            
+            console.log('successfully registered')
+            
             return res.json(user)
                    
-            console.log('successfully registered')
         
         // }
         
@@ -74,15 +75,36 @@ router.post('', async (req, res) => {
 })
 
 //update user
-router.put('/:id', async (req, res) => {
+router.put('/:uuid', async (req, res) => {
+    
+    const uuid = req.params.uuid
+    const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address} = req.body
+    
     try{
-        const id = req.params.id
+        const user = bats_users.findOne({where: {uuid}})
 
-        const field = req.body
-
-        const updateUser = await pool.query("UPDATE users SET $1=$2 WHERE id=$3",[ , ,id])  
+        user.first_name = first_name 
+        user.last_name = last_name 
+        user.dob = dob 
+        user.gender = gender 
+        user.phone = phone 
+        user.email = email 
+        user.country = country 
+        user.state_of_residence = state_of_residence 
+        user.program = program 
+        user.course = course 
+        user.matric = matric 
+        user.post = post 
+        user.grad_year = grad_year 
+        user.mascot = mascot 
+        user.occupation = occupation 
+        user.job_desc = job_desc 
+        user.emp_of_labour = emp_of_labour 
+        user.vacancy = vacancy 
+        user.office_phone = office_phone 
+        user.office_address = office_address 
         
-       res.json(singleUser.rows)
+        user.save()
         
     } catch (err){
         console.error(err.message)
@@ -90,13 +112,15 @@ router.put('/:id', async (req, res) => {
 })
 
 //delete user
-router.delete('/:id', async (req, res) => {
+router.delete('/:uuid', async (req, res) => {
     try{
-        const id = req.params.id
+        const uuid = req.params.uuid
 
-        const deleteUser = await pool.query("DELETE FORM users WHERE id = $1 ", [id])  
+        const user = await bats_users.findOne({where: {uuid}})
         
-       res.json(`User successfuly deleted`)
+        await user.destroy()
+
+        return res.json({msg: 'user has been deleted!'})
         
     } catch (err){
         console.error(err.message)

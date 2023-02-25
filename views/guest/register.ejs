@@ -1,116 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs') %> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> <%-title %></title>
+        <link rel="stylesheet" type="text/css" href="/css/regstyle.css" />
+        <script src="/js/register.js"></script>
+    </head>
 
 <body>
-    <h1>Register</h1>
+   
+    <div class="regleft">
 
-    <form action="/users" method="POST">
-        <div class="personal-details">
-            <div>
-                <input type="text" name="first_name" id="fname" placeholder="First Name" required>
-            </div>
-            <div>
-                <input type="text" name="last_name" id="lname" placeholder="Last Name"  required>
-            </div>
-            <div>
-                <input type="date" name="dob" id="dob" placeholder="Birthday"  required>
-            </div>
-            <div>
-                <label for="gender">Gender</label>
-                <br>
-                <input type="radio" name="gender" value="male" id="male">
-                <label for="male">Male</label>
-                <input type="radio" name="gender" value="female" id="female">
-                <label for="female">Female</label>
-                <input type="radio" name="gender" value="others">
-                <label for="others">Prefer not to say</label>
-            </div>
-            <div>
-                <input type="number" name="phone" id="phone" placeholder="Phone Number"  required>
-            </div>
-            <div>
-                <input type="email" name="email" id="email" placeholder="Email"  required>
-            </div>
-            <div>
-                <div>
-                    <select name="country" id="country" placeholder="Country">
-                        <option value="">Country</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="USA">USA</option>
-                    </select>
-                </div>
-                <div>
-                    <select name="state_of_residence" id="state">
-                        <option value="">state</option>
-                        <option value="Nigeria">Nigeria</option>
-                        <option value="USA">USA</option>
-                    </select>
-                </div>
-            </div>
-            <div>
-                <label for="profileimg">Add an image</label>
-                <input type="file" id="profileimg" name="profile_img">
-            </div>
-        </div>   
-        <div class="school-info">
-            <div>
-                <input type="program" name="program" id="program" placeholder="Program">
-            </div>
-            <div>
-                <input type="text" name="course" id="course" placeholder="Course">
-            </div>
-            <div>
-                <input type="text" name="matric" id="matric" placeholder="Matric Number">
-            </div>
-            <div>
-                <input type="text" name="post" id="role" placeholder="Role if any">
-            </div> 
-            <div>
-                <input type="date" name="grad_year" id="gradyear" placeholder="Graduation Year">
-            </div>
-            <div>
-                <input type="text" name="mascot" id="mascot" placeholder="Mascot">
-            </div>
-        </div> 
-        <div class="professional-info">
-            <div>
-                <input type="text" name="occupation" id="occupation" placeholder="Current Occupation">
-            </div>
-            <div>
-                <input type="text" name="job_desc" id="job_desc" placeholder="Job Description">
-            </div>
-            <div>
-                <label for="">Are you an employer of employer of labour?</label>
-                <div>
-                    <input type="radio" name="emp_of_labour" id="yes" value="1">
-                    <label for="yes">Yes</label>
-                    <input type="radio" name="emp_of_labour" id="no" value="0">
-                    <label for="no">No</label>
-                </div>
-            </div>
-            <div>
-                <label for="vacancy">What Available jobs can you provide?</label>
-                <br>
-                <textarea id="vacancy" name="vacancy" rows="4" cols="50"></textarea>
-            </div>
-            <div>
-                <input type="text" name="office_phone" id="office_phone" placeholder="Office Number">
-            </div>
-            <div>
-                <input type="text" name="office_address" id="office_address" placeholder="Office Address">
-            </div>
+        <div class="logo">
+            <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
+            <h3>Babcock Alumni <br>tracking  System<br>(BATS)</h3>
         </div>
-        <div class="security">
-            <div>
-                <input type="password" name="password" id="password" placeholder="Enter Password" required>
-            </div>
-            <div>
-                <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required>
-            </div>
-        </div>
-        <input type="submit" value="submit">
-    </form>
+       
+        <div class="form">
+            <form action="/users" method="POST" id="regForm">
+
+                <h2>Alumni Registration</h2>
     
+                <div class="personal-details tab">
+                    <div>
+                        <input type="text" name="first_name" id="fname" placeholder="First Name" required>
+                    </div>
+                    <div>
+                        <input type="text" name="last_name" id="lname" placeholder="Last Name"  required>
+                    </div>
+                    <div>
+                        <input type="date" name="dob" id="dob" placeholder="Birthday"  required>
+                    </div>
+                    <div>
+                        <select name="gender" id="gender" >
+                            <option> Gender</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                            <option value="none">Prefer not to say</option>
+                        </select>
+                    </div>
+                    <div>
+                        <input type="number" name="phone" id="phone" placeholder="Phone Number"  required>
+                    </div>
+                    <div>
+                        <input type="email" name="email" id="email" placeholder="Email"  required>
+                    </div>
+                    <div>
+                        <div>
+                            <select name="country" id="country" placeholder="Country">
+                                <option value="">Country</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="USA">USA</option>
+                            </select>
+                        </div>
+                        <div>
+                            <select name="state_of_residence" id="state">
+                                <option value="">state</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="USA">USA</option>
+                            </select>
+                        </div>
+                    </div>
+                    <!-- for uploading images -->
+                    <!-- <div>
+                        <label for="profileimg">Add an image</label>
+                        <input type="file" id="profileimg" name="profile_img" class="img_up">
+                    </div> -->
+                </div>   
+                <div class="school-info tab">
+                    <div>
+                        <input type="program" name="program" id="program" placeholder="Program">
+                    </div>
+                    <div>
+                        <input type="text" name="course" id="course" placeholder="Course">
+                    </div>
+                    <div>
+                        <input type="text" name="matric" id="matric" placeholder="Matric Number">
+                    </div>
+                    <div>
+                        <input type="text" name="post" id="role" placeholder="Role if any">
+                    </div> 
+                    <div>
+                        <input type="date" name="grad_year" id="gradyear" placeholder="Graduation Year">
+                    </div>
+                    <div>
+                        <input type="text" name="mascot" id="mascot" placeholder="Mascot">
+                    </div>
+                </div> 
+                <div class="professional-info tab">
+                    <div>
+                        <input type="text" name="occupation" id="occupation" placeholder="Current Occupation">
+                    </div>
+                    <div>
+                        <input type="text" name="job_desc" id="job_desc" placeholder="Job Description">
+                    </div>
+                    <div class="emp_of_labour">
+                        <label for="">Are you an employer of employer of labour?</label>
+                        <div class="emp_labour">
+                            <div>
+                                <input type="radio" name="emp_of_labour" id="yes" value="1">
+                                <label for="yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="emp_of_labour" id="no" value="0">
+                                <label for="no">No</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="vacancy">What Available jobs can you provide?</label>
+                        <br>
+                        <textarea id="vacancy" name="vacancy" rows="4" cols="50"></textarea>
+                    </div>
+                    <div>
+                        <input type="text" name="office_phone" id="office_phone" placeholder="Office Number">
+                    </div>
+                    <div>
+                        <input type="text" name="office_address" id="office_address" placeholder="Office Address">
+                    </div>
+                </div>
+                <div class="security tab">
+                    <div>
+                        <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                    </div>
+                    <div>
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required>
+                    </div>
+                
+                    <button type="submit" class="submit-btn">Register</button>
+                </div>
+       
+                <div class="success tab">
+                    <p>Registration successful</p>
+                </div>
+                <div class="ctrl-btn">
+                    
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                </div>
+            </form>
+
+           
+        </div>
+        
+        
+        <p class="left-reg-foot">Have an account? <a href="/auth/login">Login Here</a></p>
+    </div>
+
+    <div class="regright">
+        
+        <a href="/auth/login" class="reg-btn">Login</a>
+
+        <div class="sideinfo1 step">
+            <img src="" alt="personal-details">
+            <p>1</p>
+        </div>
+        <div class="sideinfo2 step">
+            <img src="" alt="school-info">
+            <p>2</p>
+        </div>
+        <div class="sideinfo3 step">
+            <img src="" alt="professional-info">
+            <p>3</p>
+        </div>
+        <div class="sideinfo4 step">
+            <img src="" alt="security">
+            <p>4</p>
+        </div>
+        <div class="sideinfo5 step">
+            <img src="" alt="">
+            <p>5</p>
+        </div>
+
+    </div>
+
 </body>
 </html>

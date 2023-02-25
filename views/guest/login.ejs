@@ -1,18 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('../partials/head.ejs') %> 
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> <%-title %></title>
+        <link rel="stylesheet" type="text/css" href="/css/loginstyle.css" />
+    </head>
 <body>
-    <h1>Login</h1>
-    <form action="/users" method="POST">
-        <div>
-            <label for="email">Email</label>
-            <input type="text" name="first_name" id="email" required>
+
+    <div class="loginleft">
+
+        <div class="logo">
+            <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
+            <h3>Babcock Alumni <br>tracking  System<br>(BATS)</h3>
         </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="text" name="detail" id="password" required>
+        
+        <div class="login">
+            
+            <h2>Welcome Back</h2>
+            
+            <form action="/auth/login" method="POST">
+                
+                <% if (messages.error){ %>
+                    <%= messages.error %>
+                <% } %>
+                
+                <div>
+                    <label for="email">Email</label>
+                    <br>
+                    <input type="email" name="email" id="email" class="input-field" required>
+                </div>
+                
+                <div>
+                    <label for="password">Password</label>
+                    <br>
+                    <input type="password" name="password" id="password" class="input-field" required>
+                </div>
+                <div class="submit-area">
+                    
+                    <button type="submit" class="submit-btn">Login</button>
+                    
+                    <a href="#">Forgot Password?</a>
+
+                </div>
+                
+            </form>
+
         </div>
-        <input type="submit" value="submit">
-    </form>
+        
+        <p>Don't have an account? <a href="/auth/register">Register Now</a></p>
+
+    </div>
+
+    <div class="loginright">
+       
+        <a href="/auth/register" class="reg-btn">Register</a>
+       
+        <div>
+            <img src="/img/asset/tracklogin.png" alt="tracking">
+        </div>
+       
+        <div class="textdesc">
+            <h3>Description</h3>
+       
+        </div>
+    </div>
 </body>
 </html>
