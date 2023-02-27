@@ -9,19 +9,13 @@ const register =  (req, res) => {
     res.render('../views/guest/register', {title: 'BATS | Register'})
 }
 
-// const authLogin = (req, res) => {
-//     const {email, password} = req.body
+const success = (req, res) => {
+    res.render('../views/guest/regSuccess', {title: 'BATS | Success'})
+}
 
-//     try{
-        
-
-//     } catch(err){
-//         console.error(err.message);
-//     }
-// }
 
 module.exports = {
     login,
-    register
-    // authLogin
+    register,
+    success
 }

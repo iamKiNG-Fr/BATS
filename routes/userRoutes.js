@@ -64,7 +64,7 @@ router.post('', async (req, res) => {
             
             console.log('successfully registered')
             
-            return res.json(user)
+            return res.redirect('/auth/success')
                    
         
         // }

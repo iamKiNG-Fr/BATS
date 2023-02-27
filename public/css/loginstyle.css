@@ -116,6 +116,9 @@ a:hover{
     border-radius: 1rem;
     align-self: flex-end;
 }
+.reg-btn:hover{
+    border: 2px solid #D69A3E;
+}
 
 .loginright img{
     width: 300px;

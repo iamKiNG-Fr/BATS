@@ -18,6 +18,8 @@ router.get('/login', authController.login)
 
 router.get('/register', authController.register)
 
+router.get('/success', authController.success)
+
 router.post('/login', passport.authenticate('local', {
     successRedirect: '/alumni/home',
     failureRedirect: '/auth/login',

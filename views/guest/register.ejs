@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> <%-title %></title>
         <link rel="stylesheet" type="text/css" href="/css/regstyle.css" />
-        <script src="/js/register.js"></script>
+        <script src="/js/register.js" defer></script>
     </head>
 
 <body>
@@ -123,22 +123,19 @@
                 </div>
                 <div class="security tab">
                     <div>
-                        <input type="password" name="password" id="password" placeholder="Enter Password" required>
+                        <input type="password" name="password" id="password" placeholder="Enter Password" autocomplete="new-password" required>
                     </div>
                     <div>
-                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" required>
+                        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password" autocomplete="new-password" required>
                     </div>
                 
-                    <button type="submit" class="submit-btn">Register</button>
-                </div>
-       
-                <div class="success tab">
-                    <p>Registration successful</p>
+                    
                 </div>
                 <div class="ctrl-btn">
                     
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Back</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Next</button>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="prev-btn">◀ Back</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="next-btn">Next</button>
+                    <button type="submit" class="submit-btn subBtn">Register</button>
                 </div>
             </form>
 
@@ -154,26 +151,43 @@
         <a href="/auth/login" class="reg-btn">Login</a>
 
         <div class="sideinfo1 step">
-            <img src="" alt="personal-details">
-            <p>1</p>
-        </div>
-        <div class="sideinfo2 step">
-            <img src="" alt="school-info">
-            <p>2</p>
-        </div>
-        <div class="sideinfo3 step">
-            <img src="" alt="professional-info">
-            <p>3</p>
-        </div>
-        <div class="sideinfo4 step">
-            <img src="" alt="security">
-            <p>4</p>
-        </div>
-        <div class="sideinfo5 step">
-            <img src="" alt="">
-            <p>5</p>
+            <div class="sideinfo">
+                
+                <img src="/img/asset/5051402.jpg" alt="personal-details" class="img">
+                <h3>Personal Details</h3>
+               <img src="/img/asset/regprog1.png" alt="step 1/4" class="reg-prog">
+            </div>
         </div>
 
+        <div class="sideinfo2 step">
+            <div class="sideinfo">
+                <img src="/img/asset/tracklogin.png" alt="school-info" class="img">
+                <h3>School Information</h3>
+                <img src="/img/asset/regprog2.png" alt="step 2/4" class="reg-prog">
+            </div>
+        </div>
+
+        <div class="sideinfo3 step">
+            <div class="sideinfo">
+
+                <img src="/img/asset/5051402.jpg" alt="professional-info" class="img">
+                <h3>Professional Information</h3 >
+                <img src="/img/asset/regprog3.png" alt="step 3/4" class="reg-prog">
+            </div>
+        </div>
+
+        <div class="sideinfo4 step">
+            <div class="sideinfo">
+
+                <img src="/img/asset/tracklogin.png" alt="security" class="img">
+                <h3>Security Details</h3>
+                <img src="/img/asset/regprog4.png" alt="step 4/4" class="reg-prog">
+            </div>
+        </div>
+
+        <div>
+            <p> </p>
+        </div>
     </div>
 
 </body>

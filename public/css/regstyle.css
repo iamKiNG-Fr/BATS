@@ -29,12 +29,15 @@ body{
 }
 
 .regleft{
+    height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
     background-color: white;
     width: 50%;
-    padding: 2.5rem;
+    padding: 2rem 2rem 1rem 2rem;
+    border-radius: 0 4rem 4rem 0;
 }
 
 .form{
@@ -42,16 +45,19 @@ body{
    flex-direction: column;
    margin-top: 2rem;
    width: 350px;
+
 }
 
 form{
     display: flex;
     flex-direction: column;
+    
 }
 
 form h2{
     margin-bottom: 1.5rem;
     text-align: center;
+    
 }
 
 .regleft input{
@@ -123,18 +129,33 @@ textarea{
 .ctrl-btn{
     display: flex;
     justify-content: space-between;
+    margin-top: 1rem;
 }
-.ctrl-btn button{
+.ctrl-btn .next-btn{
     height: 2rem;
     width: 9rem;
     background-color: #1772c7;
     color: #ffffff;
     border-radius: 2rem;
     border: none;
+    
 }
-.ctrl-btn button:hover{
+.ctrl-btn .prev-btn{
+    height: 2rem;
+    width: 9rem;
+    background-color: #ffffff ;
+    color:#1772c7;
+    border-radius: 2rem;
+    border: none;
+    
+}
+.ctrl-btn .next-btn:hover{
     cursor: pointer;
     background-color: #125B9E;
+}
+.ctrl-btn .prev-btn:hover{
+    cursor: pointer;
+    color: #D69A3E;
 }
 
 .reg-btn{
@@ -169,7 +190,44 @@ a:hover{
 }
 
 .regright{
+    background-color: rgba(13, 51, 118,0);
     width: 50%;
-    overflow: hidden;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sideinfo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.regright .img{
+    width: 300px;
+    
+}
+
+.regright h3{
+    margin-top: 1rem;
+    text-align: center;
+    color: #ffffff;
+}
+
+.reg-prog{
+    width: 400px;
+    margin-top: 1rem;
+}
+
+/* Multi form */
+.tab{
+    display: none;
+}
+
+.step{
+    display: none;
+    
 }
 
