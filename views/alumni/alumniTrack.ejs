@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title> <%-title %></title>
+        <link rel="stylesheet" type="text/css" href="/css/alumnistyle.css">
+        <link rel="stylesheet" type="text/css" href="/css/alumniTrack.css">
+        <script src="/js/alumniTrack.js" defer></script>
+        <script src="/js/map.js" defer></script>
+    </head>
+<body>
+    <%- include('../partials/alumniNav.ejs') %>
+    
+    <div class="main">
+
+        <h1>Alumni Track</h1>
+
+        <div class="search">
+            <form action="/alumni/search" method="GET">
+                <div>
+                    <div class="search-area">
+                        <input type="search" name="search" id="search" placeholder="Search Alumni...">
+                        <button type="submit" class="search-btn">🔎</button>
+                    </div>
+                    <div class="search_filter">
+                        <label>Search by:</label>
+                        <div class="filter">
+                            <div>
+                                <input type="checkbox" name="filter" id="fname" value="first_name" checked>
+                                <label for="fname">First Name</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filter" id="lname" value="last_name">
+                                <label for="lname">Last Name</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="filter" id="lname" value="grad_year">
+                                <label for="lname">Grad. Year</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            
+            <div id="map"></div>
+
+            <div class="tablehead">
+                <div class="th"><p>First Name</p></div>
+                <div class="th"><p>Last Name</p></div>
+                <div class="th"><p>Set</p></div>
+                <div class="th"><p>Occupation</p></div>
+                <div class="th"><p>E-mail</p></div>
+                <div class="th">Action</div>
+            </div>
+            
+                <% for( let i = 0; i < alumni.length; i++ ) { %>
+                    <div class="searchresult">
+                        <div class="td"><p><%= alumni[i].first_name %></p></div>
+                        <div class="td"><p><%= alumni[i].last_name %></p></div>
+                        <div class="td"><p><%= alumni[i].mascot %></p></div>
+                        <div class="td"><p><%= alumni[i].occupation %></p></div>
+                        <div class="td"><p><%= alumni[i].email %></p></div>
+                        <div class="td"><a href="/alumni/<%= alumni[i].uuid %>">View More...</a></div>
+                    </div>
+                <% } %>
+            
+        </div>
+
+    </div>
+
+    <%- include('../partials/alumniFooter.ejs') %>
+    <script src="/js/map.js" defer></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE&callback=initMap" defer>
+</script>
+</body>
+</html>
+
+<!--googlemap api key:  AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE-->

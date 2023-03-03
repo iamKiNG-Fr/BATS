@@ -1,0 +1,146 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+/* html{
+    background-image: url('/img/asset/babcockbbs.png');
+} */
+body{
+    padding: 1rem;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
+    /* background-color:rgba(30, 75, 152, 0.486); */
+}
+
+.main{
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(142, 142, 142);
+}
+a:hover{
+    color: #D69A3E;
+}
+
+/* alumni search result */
+.main #map{
+    width: 80%;
+    height: 500px;
+}
+
+.search{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.search-area{
+    display: flex;
+    align-items: center;
+}
+
+#search{
+    margin: 0.5rem 0.5rem 0.5rem 0;
+    width: 20rem;
+    height: 2.3rem;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 2px;
+    border-style: solid;
+    border-radius: 8px;
+}
+
+.search-btn{
+    margin: 0.5rem 0rem;
+    height: 2.3rem;
+    padding: 10px;
+    background-color: #cbe6ff;
+    font-size: 1rem;
+    font-weight: 400;
+    border: 1px solid ;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.search-btn:hover{
+    background-color: #48a7ff;
+}
+
+.search_filter{
+
+}
+
+.filter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter div{
+    margin: 0.5rem 0.5rem 0 0;
+}
+
+.search .tablehead{
+    display: none;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 1rem;
+    color: #fff;
+    background-color: #125B9E;
+    border-radius: 15px;
+}
+
+.search .tablehead .th{
+    margin: 1rem 2rem 1rem 2rem;
+    width: 16.7%;
+    text-align: center;
+}
+
+.search .searchresult{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2rem;
+    color: #000000;
+    background-color: #fff;
+    box-shadow: 1px 0px 10px #125B9E;
+    border-radius: 15px;
+}
+
+.search .searchresult .td{
+    margin: 1rem 1rem 1rem 1rem;
+    width: 16.7%;
+    text-align: center;
+}
