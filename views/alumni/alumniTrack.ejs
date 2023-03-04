@@ -7,6 +7,7 @@
         <title> <%-title %></title>
         <link rel="stylesheet" type="text/css" href="/css/alumnistyle.css">
         <link rel="stylesheet" type="text/css" href="/css/alumniTrack.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="/js/alumniTrack.js" defer></script>
         <script src="/js/map.js" defer></script>
     </head>
@@ -46,6 +47,11 @@
             
             <div id="map"></div>
 
+            <div class="genStats">
+                <p>Number of Registered Alumni</p>
+                <h3><%= userNum %></h3>
+            </div>
+
             <div class="tablehead">
                 <div class="th"><p>First Name</p></div>
                 <div class="th"><p>Last Name</p></div>
@@ -71,11 +77,14 @@
     </div>
 
     <%- include('../partials/alumniFooter.ejs') %>
-    <script src="/js/map.js" defer></script>
+    
     <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE&callback=initMap" defer>
-</script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE&callback=initMap" defer></script>
+    <script
+    src="" defer></script>
 </body>
 </html>
 
-<!--googlemap api key:  AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE-->
+<!--googlemap api key:  AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE 
+    geocoding api: AIzaSyAy5fA7ARYOjHt7-Csb7fI8ypCVB25ZuvE
+    AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE-->

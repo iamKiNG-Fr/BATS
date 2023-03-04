@@ -49,6 +49,8 @@ a:hover{
 .main #map{
     width: 80%;
     height: 500px;
+    background-color: #48a7ff;
+    border-radius: 20px;
 }
 
 .search{

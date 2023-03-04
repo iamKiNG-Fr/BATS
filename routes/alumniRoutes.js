@@ -7,11 +7,32 @@ const Op = Sequelize.Op
 //routes
 
 router.get('/home', (req, res) => {
+    
     res.render('../views/alumni/alumniHome', {title: 'BATS | Alumni Home', name: req.user.first_name})
 })
 
-router.get('/track', (req, res) => {
-    res.render('../views/alumni/alumniTrack', { title: 'BATS | Alumni Track', alumni: ''})
+router.get('/track', async (req, res) => {
+    try{
+        
+        const alumni = await bats_users.findAll()
+        const userNum = alumni.length
+
+        res.render('../views/alumni/alumniTrack', { title: 'BATS | Alumni Track', userNum, alumni:''})
+
+    }catch(err){
+        return res.status(500).json({error: 'something went wrong'})
+    }
+})
+
+router.get('/address', async (req, res) => {
+    try{
+        const alumni = await bats_users.findAll({attributes: ['country', 'state_of_residence']})
+
+        return res.json(alumni)
+
+    }catch(err){
+        return res.status(500).json({error: 'something went wrong'})
+    }
 })
 
 router.get('/about', (req, res) => {
