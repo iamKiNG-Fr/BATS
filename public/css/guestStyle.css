@@ -1,0 +1,174 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    padding: 1rem;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
+    /* background-color:rgba(30, 75, 152, 0.486); */
+}
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(142, 142, 142);
+}
+a:hover{
+    color: #D69A3E;
+}
+
+/* homepage */
+.main{
+    max-width: 80%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: center;
+    align-items: center;
+}
+
+.main .hero{
+    display: flex;
+    margin-bottom: 2.5rem;
+    justify-content: space-between;
+}
+
+.main .hero .text{
+    width: 48%;
+}
+
+.main .hero .text h1{
+    margin-bottom: 1rem;
+    color: #003464;
+    text-transform:uppercase;
+}
+
+.main .hero .text p{
+    line-height: 1.5;
+}
+
+.main .hero .img{
+    width: 48%;
+    background-color: #bddfff9f;
+    border-radius: 10px;
+}
+
+.main .why{
+    display: flex;
+    margin-bottom: 2.5rem;
+    justify-content: space-between;
+}
+
+.main .why .text{
+    width: 45%;
+}
+
+.main .why .text h2{
+    margin-bottom: 1rem;
+    color: #003464;
+    text-transform:uppercase;
+}
+
+.main .why .text p{
+    line-height: 1.5;
+}
+
+.main .why .img{
+    width: 50%;
+    background-color: #bddfff9f;
+    border-radius: 10px;
+}
+
+.main .benefits{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.5rem;
+}
+
+.main .benefits h2{
+    margin-bottom: 1rem;
+    color: #003464;
+    text-transform:uppercase;
+    text-align: center;
+}
+
+.main .cards{
+    display: flex;
+    justify-content: space-between;
+}
+
+.main .card{
+    width: 32%;
+}
+
+.main .card .text{
+    margin-top: 1rem;
+    text-align: center;
+    padding: 0 0.5rem;
+}
+
+.main .card .text h3{
+    text-transform:uppercase;
+    color: #003464;
+    margin-bottom: 0.5rem;
+    text-align: center;
+}
+
+.main .benefits .text p{
+    line-height: 1.5;
+}
+
+.main .card .img{
+    height: 10rem;
+    background-color: #bddfff9f;
+    border-radius: 10px;
+}
+
+/* track page */
+.track{
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+}
+
+/* about page */
+.about{
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+}
+
+/* contact page */
+.contact{
+    width: 100%;
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+}
