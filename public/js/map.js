@@ -51,6 +51,7 @@ async function initMap(){
     console.log(Array.isArray(cordss));
 
     var map = new google.maps.Map(document.querySelector('#map'), options)
+    
 
     function addMarker(cord){
         var marker = new google.maps.Marker({

@@ -1,13 +1,9 @@
-const tableHead = document.querySelector('.tableHead');   
-const searchBtn = document.querySelector('.search-btn');   
 
-searchBtn.addEventListener( 'click', () =>{
-    console.log('You touched me');
-    tableHead.style.display= "block";
-})
-// function showSearch(){
-//     if(tableHead.style.display == "none"){
-//         console.log('display: flex');
-//         
-//     }
-// }
+function displayFilter(){
+    document.querySelector(".search_filter").style.display = "block"
+    document.querySelector(".search-btn").style.display = "flex"
+}
+
+function removeFilter(){
+    document.querySelector(".search_filter").style.display = "none"
+}

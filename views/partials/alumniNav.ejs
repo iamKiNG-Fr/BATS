@@ -1,8 +1,9 @@
 <nav>
     <div class="navleft">
-        <div class="logo">
-            <a href="/alumni/home">Home</a>
-        </div>
+        <a href="/alumni/home" class="logo">
+            <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
+            <p>Babcock Alumni <br>tracking  System<br>(BATS)</p>
+        </a>
     </div>
     <div class="navmain">
         <a href="/alumni/track">Track</a>
@@ -11,6 +12,7 @@
     </div>
     <div class="navright">
         <a href="/logout">Logout</a>
-        <a href="#">Profile</a>
+        <a href="/alumni/me/<%= userUUId %>">Profile</a>
     </div>
 </nav>
+

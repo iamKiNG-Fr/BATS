@@ -8,7 +8,7 @@
     background-image: url('/img/asset/babcockbbs.png');
 } */
 body{
-    padding: 1rem;
+
     min-height: 100vh;
     width: 100%;
     display: flex;
@@ -18,9 +18,148 @@ body{
     /* background-color:rgba(30, 75, 152, 0.486); */
 }
 
+body::-webkit-scrollbar{
+    width: 10px;
+}
+body::-webkit-scrollbar-track{
+    background-color: white;
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #00346462;
+    border-radius: 5px;
+}
+body::-webkit-scrollbar-thumb:hover{
+    background-color: #003464;
+}
+
+
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 1rem 0;
+    background-color: #004c94e9;
+    backdrop-filter: blur(5px);
+    padding-inline: 1rem;
+}
+.logo{
+    display: flex; 
+}
+.logo img{
+    width: 2rem;
+
+}
+.logo p{
+    font-size: 0.6rem;
+    margin-left: 0.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+nav a{
+    color: #ffffff;
+}
+.navmain a{
+    margin: 0 1rem;
+}
+.navright a{
+    background-color: #ffffff;
+    border-radius: 5px;
+    color: #003464;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    transition: 500ms ease;
+}
+.navright a:hover{
+    background-color: #D69A3E;
+    color: #fff;
+}
+
+footer{
+    display: flex;
+    justify-content: space-between;
+    background-color: #003464;
+    color: #fff;
+    padding: 2rem 6rem;
+}
+footer h4{
+    margin-bottom: 1rem;
+    color: #D69A3E;
+}
+footer p, footer a{
+    line-height: 1.5;
+}
+
+/* ,alumni home */
+.home{
+    width: 70%;
+    margin: 4rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+    align-self: center;
+}
+
+.home .info{
+    margin-top: 1rem;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.home .info .card{
+    width: 15rem;
+    height: 15rem;
+    margin: 0.5rem;
+    background-color: #0060ba;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home .info .card p{
+    color: #fff;
+}
+
+.home .info .card h3{
+    font-size: 5rem;
+    color: #D69A3E;
+}
+
+.home .info .update{
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    height: 15rem;
+}
+
+.home .info .update .card{
+    width: 100%;
+    padding: 1rem;
+    color: #0060ba;
+
+}
+
+.home .info .update .card h3{
+    font-size: 1rem;
+}
+
+.home .news{
+    margin-top: 1rem;
+}
+/* track page */
 .main{
     width: 100%;
-    margin: 2rem 0;
+    margin: 4rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
@@ -40,18 +179,71 @@ footer{
 a{
     text-decoration: none;
     color: rgb(142, 142, 142);
+    transition: 500ms ease;
 }
 a:hover{
     color: #D69A3E;
 }
 
 /* alumni search result */
-.main #map{
-    width: 80%;
+.mapandstats{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.mapandstats #map{
+    width: 70%;
     height: 500px;
     background-color: #48a7ff;
     border-radius: 20px;
 }
+
+.mapandstats .genStats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: auto;
+}
+
+.mapandstats .stat-card{
+    margin-left: 2rem;
+    background-color: #0060ba;
+    color: #fff;
+    border-radius: 15px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.mapandstats .stat-card:hover{
+    margin-left: 2.2rem;
+    box-shadow: 0 0 10px #003464;
+    background-color: #D69A3E;
+}
+
+.mapandstats .stat-card h3{
+    color: #D69A3E;
+    font-size: 5rem;
+    font-style: italic;
+    margin-left: 1rem;
+    transition: 500ms ease;
+}
+.mapandstats .stat-card:hover h3{
+    color: #0060ba;
+}
+
+.mapandstats .stat-card p{
+    font-size: 0..5rem;
+}
+
+.mapandstats .stat-card .kw{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Track page search style */
 
 .search{
     width: 90%;
@@ -61,7 +253,7 @@ a:hover{
     margin-top: 1rem;
 }
 
-form{
+.main form{
     width: 100%;
     display: flex;
     justify-content: center;
@@ -93,7 +285,7 @@ form{
     font-weight: 400;
     border: 1px solid ;
     border-radius: 8px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
 }
@@ -102,7 +294,7 @@ form{
 }
 
 .search_filter{
-
+    display: none;
 }
 
 .filter{
@@ -115,7 +307,7 @@ form{
 }
 
 .search .tablehead{
-    display: none;
+    display: flex;
     width: 100%;
     justify-content: space-between;
     margin-top: 1rem;
@@ -145,4 +337,216 @@ form{
     margin: 1rem 1rem 1rem 1rem;
     width: 16.7%;
     text-align: center;
+}
+
+/* about page */
+.about{
+    width: 70%;
+    margin: 3rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: center;
+    align-items: center;
+}
+
+.about .batsabout{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+
+.about .batsabout .text{
+    width: 45%;
+}
+
+.about .batsabout .text h2{
+    margin-bottom: 1rem;
+}
+
+.about .batsabout .text p{
+    line-height: 1.5;
+}
+
+.about .batsabout .img{
+    width: 50%;
+    background-color:#bddfff9f;
+    border-radius: 15px;
+}
+
+.about .features{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.about .features h2{
+    text-align: center;
+    margin-bottom: 1rem;
+}   
+
+.about .features .cards{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.about .features .card{
+    background-color: #bddfff9f;
+    width: 20rem;
+    height: 15rem;
+    border-radius: 15px;
+    margin-top: 1rem;
+}
+
+/* contact page */
+.contact{
+    width: 70%;
+    margin: 4rem 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-self: center;
+    align-items: center;
+}
+
+.contact .contactinfo{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.contact .contactinfo .info{
+    margin-top: 1rem;
+    width: 30rem;
+    height: 25rem;
+    /* background-color: #bddfff9f; */
+    background-image: linear-gradient(to right, #0032a7ae, #0032a722), url('../img/asset/babcockstone.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2.5rem;
+    color: #fff;
+}
+
+.contact .contactinfo .info p{
+    font-size: 1.5rem;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: #ffffff;
+}
+
+.contact .contactinfo .info h4{
+    font-size: 1.8rem;
+    color: #fff;
+}
+
+.contact .contactinfo .info .address{
+    display: flex;
+    flex-direction: column;
+    color: #000000;
+}
+.contact .contactinfo .info .address a{
+    margin-top: 0.5rem;
+    color: #fff;
+}
+
+.contact .contactinfo #map2{
+    margin-top: 1rem;
+    width: 30rem;
+    height: 25rem;
+    background-color: #bddfff9f;
+    border-radius: 15px;
+}
+
+.contact .contactform{
+    display: flex;
+    flex-direction: column;
+    min-width: 90%;
+}
+
+.contact .contactform h2{
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.contact .contactform .form{
+    background-color: #bddfff9f;
+    border-radius: 15px;
+    padding: 1rem;
+    display: flex;
+    width: 100%;
+}
+
+.contact .contactform form{
+    width: 50%;
+}
+
+.contact .contactform .input{
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+}
+
+.contact .contactform .input input{
+    margin: 0.5rem 0rem;
+    width: 100%;
+    height: 2.3rem;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    border-radius: 8px;
+    border: 3px solid #003464;
+    transition: 500ms ease;
+}
+.contact .contactform .input input:hover{
+    border: 3px solid #D69A3E;
+}
+.contact .contactform .input input:focus{
+    outline: none;
+    border: 3px solid #D69A3E;
+}
+
+.contact .contactform .input textarea{
+    width: 100%;
+    margin: 0.5rem 0rem;padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    border-radius: 8px;
+    border: none;
+    border: 3px solid #003464;
+    transition: 500ms ease;
+}
+.contact .contactform .input textarea:hover{
+    border: 3px solid #D69A3E;
+}
+.contact .contactform .input textarea:focus{
+    outline: none;
+    border: 3px solid #D69A3E;
+}
+
+.contact .contactform form button{
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 1rem;
+    background-color: #0060ba;
+    color: white;
+    font-weight: 600;
+    border: none;
+    transition: 500ms ease;
+}
+.contact .contactform button:hover{
+    background-color: #D69A3E;
+    color: #003464;
 }

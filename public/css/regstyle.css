@@ -22,9 +22,11 @@ body{
     display: flex;
     align-items: center;
     align-self: flex-start;
+    font-size: 0.8rem;
+    
 }
 .logo img{
-    max-width: 5rem;
+    max-width: 3rem;
     margin-right: 0.5rem;
 }
 
@@ -93,6 +95,9 @@ form h2{
 .emp_labour{
     display: flex;
 }
+.vacancy{
+    display: none;
+}
 .emp_labour div{
     display: flex;
     align-items: center;
@@ -118,12 +123,13 @@ textarea{
     width: 9rem;
     background-color: #1772c7;
     color: #ffffff;
-    border-radius: 2rem;
+    border-radius: 10px;
     border: none;
+    transition: 500ms ease;
 }
 .submit-btn:hover{
     cursor: pointer;
-    background-color: #125B9E;
+    background-color: #D69A3E;
 }
 
 .ctrl-btn{
@@ -136,8 +142,9 @@ textarea{
     width: 9rem;
     background-color: #1772c7;
     color: #ffffff;
-    border-radius: 2rem;
+    border-radius: 10px;
     border: none;
+    transition: 500ms ease;
     
 }
 .ctrl-btn .prev-btn{
@@ -147,7 +154,7 @@ textarea{
     color:#1772c7;
     border-radius: 2rem;
     border: none;
-    
+    transition: 500ms ease;
 }
 .ctrl-btn .next-btn:hover{
     cursor: pointer;
@@ -167,12 +174,13 @@ textarea{
     align-items: center;
     text-decoration: none;
     color: black;
-    border-radius: 1rem;
+    border-radius: 10px;
     align-self: flex-end;
+    transition: 500ms ease;
 }
 .reg-btn:hover{
-    border-style: solid;
-    border-color: #D69A3E;
+    color: #ffffff;
+    background-color: #D69A3E;
 }
 
 a{

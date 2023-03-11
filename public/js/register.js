@@ -53,3 +53,15 @@ function fixStepIndicator(n){
     x[n].style.display = "block"
     
 }
+
+function addVacancy(){
+    const vacancy = document.querySelector(".vacancy")
+
+    vacancy.style.display = "block"
+}
+
+function removeVacancy(){
+    const vacancy = document.querySelector(".vacancy")
+
+    vacancy.style.display = "none"
+}

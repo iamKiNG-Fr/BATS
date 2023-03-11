@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../partials/alumniHead.ejs') %> 
+<body>
+    <%- include('../partials/alumniNav.ejs') %>
+        <div>
+            <div>
+                <div>
+                    <p>Name</p>
+                    <h3><%= alumni.first_name %> <%= alumni.last_name%></h1>
+                </div>
+                <div>
+                    <p>Contact Info</p>
+                    <h3><%= alumni.email %></h3>
+                </div>
+                <div>
+                    <p>Set</p>
+                    <h3><%= alumni.grad_year %></h3>
+                </div>
+            </div>
+            <img src="" alt="alumni pic">
+        </div>
+        <div>
+            <p>Badge</p>
+            <div>
+                <p><%= alumni.mascot %></p>
+            </div>
+        </div>
+        <div>
+            <p2>Professional Information</p>
+            <div>
+                <div>
+                    <p>job</p>
+                    <h3><%= alumni.occupation %></h3>
+                </div>
+                <div>
+                    <p>Job Description</p>
+                    <h3><%= alumni.job_desc %></h3>
+                </div>
+                <div>
+                    <p>Employer of Labour?</p>
+                    <% if(alumni.emp_of_labour){ %>
+                        <h3>Yes</h3>
+                        <div>
+                            <div>
+                                <p>Office Contact</p>
+                                <h4><%= alumni.office_phone %></h4>
+                                <h4><%= alumni.office_address %></h4>
+                            </div>
+                            <div>
+                                <p>Available Vacancy</p>
+                                <h4><%= alumni.vacancy %></h4>
+                            </div>
+                        </div>
+                    <% }else{ %>
+                        <h3>No</h3>
+                    <% } %>
+                </div>
+
+            </div>
+        </div>
+
+    <%- include('../partials/alumniFooter.ejs') %>
+</body>
+</html>

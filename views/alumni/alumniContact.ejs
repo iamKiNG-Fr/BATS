@@ -3,8 +3,43 @@
 <%- include('../partials/alumniHead.ejs') %> 
 <body>
     <%- include('../partials/alumniNav.ejs') %>
-    <h1>Alumni Contact</h1>
-
+    
+    <div class="contact">
+        <div class="contactinfo">
+            <div class="info">
+                <p>Get in touch</p>
+                <div class="address">
+                    <h4>Babcock University <br>Ileshan-Remo, Ogun State, <br>Nigeria</h4>
+                    <a href="mailto:alumni@babcock.edu.ng">alumni@babcock.edu.ng</a>
+                    <a href="tel:">01-234567</a>
+                </div>
+            </div>
+            <div id="map2"></div>
+        </div>
+        <div class="contactform">
+            <h2>Reach Out to Us</h2>
+            <div class="form">
+                <form action="">
+                    <div class="input">
+                        <label for="name">Name</label>
+                        <input type="text" id="name">
+                    </div>
+                    <div class="input">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email">
+                    </div>
+                    <div class="input">
+                        <label for="help">How can we help?</label>
+                        <textarea name="" id="help" cols="30" rows="10"></textarea>
+                    </div>
+                    <button type="submit">Send!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="/js/babcockmap.js" defer></script>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE&callback=initMap" defer></script>
     <%- include('../partials/alumniFooter.ejs') %>
 </body>
 </html>

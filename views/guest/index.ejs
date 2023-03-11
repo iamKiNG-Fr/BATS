@@ -3,19 +3,16 @@
 <%- include('../partials/guestHead.ejs') %> 
 <body>
     <%- include('../partials/guestNav.ejs') %>
-    <div class="main">
-        <div class="hero">
-            <div class="text">
-                <h1>Babcock Alumni Tracking System</h1>
-                <p> Babock Alumni tracking system is a platform that allows Babcock University 
-                    to maintain a database of their alumni and keep track of their professional 
-                    progress. The platform provides a comprehensive solution for alumni engagement, 
-                    tracking, and communication.</p>
-            </div>
-            <div class="img">
-                
-            </div>
+    <div class="hero">
+        <div class="text">
+            <h1>Babcock Alumni Tracking System</h1>
+            <p> Babock Alumni tracking system is a platform that allows Babcock University 
+                to maintain a database of their alumni and keep track of their professional 
+                progress. The platform provides a comprehensive solution for alumni engagement, 
+                tracking, and communication.</p>
         </div>
+    </div>
+    <div class="main">
         <div class="why">
             <div class="img">
 
@@ -70,10 +67,14 @@
                 </div>    
             </div>
         </div>
-        <div class="cta">
-
-        </div>
-    </div>  
+        
+    </div> 
+    
+    <div class="cta">
+        <h2>Not Registered</h2>
+        <a href="/auth/register">Register Now</a>
+    </div> 
+    
     <%- include('../partials/guestFooter.ejs') %>
 </body>
 </html>

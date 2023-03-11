@@ -43,28 +43,45 @@
                 </div>
             </form>
             
-            <div class="mapandstats">
-                <div id="map"></div>
-    
-                <div class="genStats">
-                    <a href="/alumni/search/all" class="stat-card">
-                        <p>Number of <br> <span class="kw">Registered Alumni</span></p>
-                        <h3><%= userNum %></h3>
-                    </a>
-                    <a href="/alumni/search/nigeria" class="stat-card">
-                        <p>Registered Alumni in <br> <span class="kw">Nigeria</span></p>
-                        <h3><%= alumniNGNum %></h3>
-                    </a>
-                    <a href="/alumni/search/diaspora" class="stat-card">
-                        <p>Registered Alumni in <br> <span class="kw">Diaspora</span></p>
-                        <h3><%= alumniDiasNum %></h3>
-                    </a>
-                    <a href="#" class="stat-card"> 
-                        <p>Number of available <br> <span class="kw">Job Vacancies</span></p>
-                        <h3><%= vacancyNum %></h3>
-                    </a>
-                </div>
+
+            <div class="tablehead">
+                <div class="th"><p>First Name</p></div>
+                <div class="th"><p>Last Name</p></div>
+                <div class="th"><p>Set</p></div>
+                <div class="th"><p>Occupation</p></div>
+                <div class="th"><p>E-mail</p></div>
+                <div class="th">Action</div>
             </div>
+
+                <% if (alumni) { %>
+                 
+                    <% for( let i = 0; i < alumni.length; i++ ) { %>
+                        <div class="searchresult">
+                            <div class="td"><p><%= alumni[i].first_name %></p></div>
+                            <div class="td"><p><%= alumni[i].last_name %></p></div>
+                            <div class="td"><p><%= alumni[i].mascot %></p></div>
+                            <div class="td"><p><%= alumni[i].occupation %></p></div>
+                            <div class="td"><p><%= alumni[i].email %></p></div>
+                            <div class="td"><a href="/alumni/<%= alumni[i].uuid %>">View More...</a></div>
+                        </div>
+                    <% } %>
+                
+                <% } else if(alumniNG) { %>
+
+                    <% for( let i = 0; i < alumni.length; i++ ) { %>
+                        <div class="searchresult">
+                            <div class="td"><p><%= alumni[i].first_name %></p></div>
+                            <div class="td"><p><%= alumni[i].last_name %></p></div>
+                            <div class="td"><p><%= alumni[i].mascot %></p></div>
+                            <div class="td"><p><%= alumni[i].occupation %></p></div>
+                            <div class="td"><p><%= alumni[i].email %></p></div>
+                            <div class="td"><a href="/alumni/<%= alumni[i].uuid %>">View More...</a></div>
+                        </div>
+                    <% } %>
+                
+                <% } else { %>
+                    <h2>lol</h2>
+                <% } %>
             
         </div>
 

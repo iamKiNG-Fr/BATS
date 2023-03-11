@@ -3,9 +3,32 @@
 <%- include('../partials/alumniHead.ejs') %> 
 <body>
     <%- include('../partials/alumniNav.ejs') %>
-    <h1>Alumni Home</h1>
-    <h2>Welcome <%= name %></h2> 
-    
+    <div class="home">
+        
+        <h2>Welcome <%= name %></h2>
+
+        <div class="info">
+            <div class="near card">
+                <p>Alumni near you</p>
+                <h3>00</h3>
+            </div>
+            <div class="findAluni card">
+                <p>Search Alumni</p>
+            </div>
+            <div class="update">
+                <div class="details card">
+                    <h3>Update details</h3>
+                </div>
+                <div class="memories card">
+                    <h3>Add memories</h3>
+                </div>
+            </div>
+        </div>
+        <div class="news">
+            <div class="twitter">twitter here</div>
+            <div class="mem">memories here</div>
+        </div>
+    </div>
     <%- include('../partials/alumniFooter.ejs') %>
 </body>
 </html>

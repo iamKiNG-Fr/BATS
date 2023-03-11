@@ -13,10 +13,11 @@
    
     <div class="regleft">
 
-        <div class="logo">
+        <a href="/" class="logo">
             <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
-            <h3>Babcock Alumni <br>tracking  System<br>(BATS)</h3>
-        </div>
+            <h3>Babcock Alumni <br>Tracking  System<br>(BATS)</h3>
+        </a>
+
        
         <div class="form">
             <form action="/users" method="POST" id="regForm">
@@ -347,24 +348,26 @@
                         <div class="emp_labour">
                             <div>
                                 <input type="radio" name="emp_of_labour" id="yes" value="1">
-                                <label for="yes">Yes</label>
+                                <label for="yes" onclick="addVacancy()">Yes</label>
                             </div>
                             <div>
                                 <input type="radio" name="emp_of_labour" id="no" value="0">
-                                <label for="no">No</label>
+                                <label for="no" onclick="removeVacancy()">No</label>
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <label for="vacancy">What Available jobs can you provide?</label>
-                        <br>
-                        <textarea id="vacancy" name="vacancy" rows="4" cols="50"></textarea>
-                    </div>
-                    <div>
-                        <input type="text" name="office_phone" id="office_phone" placeholder="Office Number">
-                    </div>
-                    <div>
-                        <input type="text" name="office_address" id="office_address" placeholder="Office Address">
+                    <div class="vacancy">
+                        <div>
+                            <label for="vacancy">What Available jobs can you provide?</label>
+                            <br>
+                            <textarea id="vacancy" name="vacancy" rows="4" cols="50"></textarea>
+                        </div>
+                        <div>
+                            <input type="text" name="office_phone" id="office_phone" placeholder="Office Number">
+                        </div>
+                        <div>
+                            <input type="text" name="office_address" id="office_address" placeholder="Office Address">
+                        </div>
                     </div>
                 </div>
                 <div class="security tab">
