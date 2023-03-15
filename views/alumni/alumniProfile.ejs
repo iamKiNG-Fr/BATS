@@ -3,7 +3,11 @@
 <%- include('../partials/alumniHead.ejs') %> 
 <body>
     <%- include('../partials/alumniNav.ejs') %>
-        <div>
+    <div class="userprofile">
+        <div class="title">General Info</div>
+
+        <div class="basic-info">
+
             <div>
                 <div>
                     <p>Name</p>
@@ -17,17 +21,20 @@
                     <p>Set</p>
                     <h3><%= alumni.grad_year %></h3>
                 </div>
+                <div>
+                    <p>Badge</p>
+                    <div>
+                        <h3><%= alumni.mascot %></h3>
+                    </div>
+                </div>
             </div>
             <img src="" alt="alumni pic">
         </div>
-        <div>
-            <p>Badge</p>
-            <div>
-                <p><%= alumni.mascot %></p>
-            </div>
-        </div>
-        <div>
-            <p2>Professional Information</p>
+    
+        <span class="title">Professional Information</span>
+        
+        <div class="pro-details">
+
             <div>
                 <div>
                     <p>job</p>
@@ -59,6 +66,8 @@
 
             </div>
         </div>
+    
+    </div>
 
     <%- include('../partials/alumniFooter.ejs') %>
 </body>

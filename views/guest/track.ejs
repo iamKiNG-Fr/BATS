@@ -4,8 +4,22 @@
 <body>
     <%- include('../partials/guestNav.ejs') %>
     <div class="track">
-        <h1>Track</h1>
+        <!-- <div class="onmap"  onmouseenter="displayRegister()" onmouseleave="removeRegister()">
+            <div>
+                <h2>To View Alumni Location</h2>
+                <div class="ctrl">
+                    <a href="/auth/register">Register</a>
+                    <a href="/auth/login">Login</a>
+                </div>
+            </div>
+        </div> -->
+        <div class="map">
+            <div id="map3"></div>
+        </div>
     </div>
     <%- include('../partials/guestFooter.ejs') %>
+    <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE&callback=initMap" defer></script>
+    <script src="/js/babcockmap2.js" defer></script>
 </body>
 </html>

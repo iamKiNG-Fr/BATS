@@ -100,8 +100,10 @@ router.get('/search/all', async (req, res) => {
     try{
         const alumni = await bats_users.findAll()
         const userNum = alumni.length
+        const alumniNG = 0
+        const alumniDias = 0
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, alumniNG, alumniDias, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -109,10 +111,12 @@ router.get('/search/all', async (req, res) => {
 
 router.get('/search/nigeria', async (req, res) => {
     try{
+        const alumni = 0
+        const alumniDias = 0
         const alumniNG = await bats_users.findAll({where: { country: "Nigeria" || "NG"}})
         const alumniNGNum = alumniNG.length
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumniNG, alumniDiasNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumni, alumniNG, alumniNGNum, alumniDias, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -120,10 +124,12 @@ router.get('/search/nigeria', async (req, res) => {
 
 router.get('/search/diaspora', async (req, res) => {
     try{
+        const alumni = 0
+        const alumniNG = 0
         const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: "Nigeria"}}})
         const alumniDiasNum = alumniDias.length
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumniDias, alumniDiasNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, alumniNG, alumniDias, alumniDiasNum, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -131,10 +137,13 @@ router.get('/search/diaspora', async (req, res) => {
 
 router.get('/search/vacancy', async (req, res) => {
     try{
+        const alumni = 0
+        const alumniNG = 0
+        const alumniDias = 0
         const vacancy = await bats_users.findAll({where: { emp_of_labour: 't'}})
         const vacancyNum = vacancy.length      
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', vacancy, vacancyNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', vacancy, alumni, alumniDias, alumniNG, vacancyNum, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -146,7 +155,7 @@ router.get('/:uuid', async (req, res) => {
 
     const alumni = await bats_users.findOne({where: {uuid}})
 
-    return res.render('../views/alumni/alumniProfile', { title: `BATS | ${alumni.first_name}`, alumni, userUUId: req.user.uuid})
+    return res.render('../views/alumni/alumniProfile', { title: `BATS | ${alumni.first_name} ${alumni.last_name}`, alumni, userUUId: req.user.uuid})
 })
 
 router.get('/me/:uuid', async (req, res) => {
@@ -155,9 +164,16 @@ router.get('/me/:uuid', async (req, res) => {
 
     const alumni = await bats_users.findOne({where: {uuid}})
 
-    return res.render('../views/alumni/alumniUserProfile', { title: `BATS | ${alumni.first_name}`, alumni, userUUId: req.user.uuid})
+    return res.render('../views/alumni/alumniUserProfile', { title: `BATS | My profile`, alumni, userUUId: req.user.uuid})
 })
 
+router.get('/profile/update', async (req, res) => {
+    try{
+        return res.render('../views/alumni/alumniUpdate', { title: 'BATS | Profile Update', alumni: req.user,  userUUId: req.user.uuid})
+    }catch(err){
+        return res.status(500).json({error: 'something went wrong'})
+    }
+})
 
 
 module.exports = router

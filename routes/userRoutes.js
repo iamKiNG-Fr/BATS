@@ -75,13 +75,19 @@ router.post('', async (req, res) => {
 })
 
 //update user
-router.put('/:uuid', async (req, res) => {
+router.put('/update/:uuid', async (req, res) => {
     
+    console.log("here");
+
     const uuid = req.params.uuid
     const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address} = req.body
     
+    console.log(uuid);
+
     try{
-        const user = bats_users.findOne({where: {uuid}})
+
+
+        const user = await bats_users.findOne({where: {uuid}})
 
         user.first_name = first_name 
         user.last_name = last_name 
@@ -104,7 +110,11 @@ router.put('/:uuid', async (req, res) => {
         user.office_phone = office_phone 
         user.office_address = office_address 
         
-        user.save()
+        await user.save()
+
+        console.log('updated!');
+
+        res.redirect('/alumni/home')
         
     } catch (err){
         console.error(err.message)

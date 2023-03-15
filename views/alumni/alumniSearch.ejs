@@ -53,7 +53,7 @@
                 <div class="th">Action</div>
             </div>
 
-                <% if (alumni) { %>
+                <% if (alumni.length > 0) { %>
                  
                     <% for( let i = 0; i < alumni.length; i++ ) { %>
                         <div class="searchresult">
@@ -66,23 +66,42 @@
                         </div>
                     <% } %>
                 
-                <% } else if(alumniNG) { %>
+                <% } else if(alumniNG.length > 0) { %>
 
-                    <% for( let i = 0; i < alumni.length; i++ ) { %>
+                    <% for( let i = 0; i < alumniNG.length; i++ ) { %>
                         <div class="searchresult">
-                            <div class="td"><p><%= alumni[i].first_name %></p></div>
-                            <div class="td"><p><%= alumni[i].last_name %></p></div>
-                            <div class="td"><p><%= alumni[i].mascot %></p></div>
-                            <div class="td"><p><%= alumni[i].occupation %></p></div>
-                            <div class="td"><p><%= alumni[i].email %></p></div>
-                            <div class="td"><a href="/alumni/<%= alumni[i].uuid %>">View More...</a></div>
+                            <div class="td"><p><%= alumniNG[i].last_name %></p></div>
+                            <div class="td"><p><%= alumniNG[i].first_name %></p></div>
+                            <div class="td"><p><%= alumniNG[i].mascot %></p></div>
+                            <div class="td"><p><%= alumniNG[i].occupation %></p></div>
+                            <div class="td"><p><%= alumniNG[i].email %></p></div>
+                            <div class="td"><a href="/alumni/<%= alumniNG[i].uuid %>">View More...</a></div>
                         </div>
                     <% } %>
                 
+                <% } else if (alumniDias.length > 0) { %>
+                    <% for( let i = 0; i < alumniDias.length; i++ ) { %>
+                        <div class="searchresult">
+                            <div class="td"><p><%= alumniDias[i].last_name %></p></div>
+                            <div class="td"><p><%= alumniDias[i].first_name %></p></div>
+                            <div class="td"><p><%= alumniDias[i].mascot %></p></div>
+                            <div class="td"><p><%= alumniDias[i].occupation %></p></div>
+                            <div class="td"><p><%= alumniDias[i].email %></p></div>
+                            <div class="td"><a href="/alumni/<%= alumniDias[i].uuid %>">View More...</a></div>
+                        </div>
+                    <% } %>
                 <% } else { %>
-                    <h2>lol</h2>
+                    <% for( let i = 0; i < vacancy.length; i++ ) { %>
+                        <div class="searchresult">
+                            <div class="td"><p><%= vacancy[i].last_name %></p></div>
+                            <div class="td"><p><%= vacancy[i].first_name %></p></div>
+                            <div class="td"><p><%= vacancy[i].mascot %></p></div>
+                            <div class="td"><p><%= vacancy[i].occupation %></p></div>
+                            <div class="td"><p><%= vacancy[i].email %></p></div>
+                            <div class="td"><a href="/alumni/<%= vacancy[i].uuid %>">View More...</a></div>
+                        </div>
+                    <% } %>
                 <% } %>
-            
         </div>
 
     </div>

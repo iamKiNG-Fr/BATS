@@ -251,12 +251,58 @@ a:hover{
 /* track page */
 .track{
     width: 70%;
-    margin: 2rem 0;
+    margin: 3rem 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
+    align-self: center;
     align-items: center;
 }
+
+.onmap{
+    display: flex;
+    opacity: 0;
+    position: absolute;
+    display: flex;
+    width: 70rem;
+    height: 20rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.onmap .ctrl{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.onmap .ctrl a{
+    background-color: #D69A3E;
+    padding: 0.5rem 0.8rem;
+    color: #003464;
+    border-radius: 5px;
+    margin-top: 0.5rem;
+    transition: 500ms ease;
+}
+.onmap .ctrl a:hover{
+    background-color: #0060ba;
+    color: #fff;
+}
+
+.track #map3{
+    width: 70rem;
+    height: 20rem;
+    background-color: #bddfff9f;
+    border-radius: 15px;
+    z-index: 2px;
+}
+
+.track .onmap:hover{
+    backdrop-filter: blur(8px );
+    z-index: 222;}
+
 
 /* about page */
 .about{

@@ -138,20 +138,23 @@ footer p, footer a{
 .home .info .update{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 15rem;
     height: 15rem;
+    
 }
 
-.home .info .update .card{
-    width: 100%;
+.home .info .update a{
+    background-color: #0060ba;
     padding: 1rem;
-    color: #0060ba;
-
+    border-radius: 15px;
+    height: 6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
 }
 
-.home .info .update .card h3{
-    font-size: 1rem;
-}
 
 .home .news{
     margin-top: 1rem;
@@ -549,4 +552,147 @@ a:hover{
 .contact .contactform button:hover{
     background-color: #D69A3E;
     color: #003464;
+}
+
+.vacancy{
+    display: none;
+}
+
+/* update profile page */
+.profile{
+    width: 70%;
+    margin: 6rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+    align-self: center;
+}
+
+.form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile .form input, .form textarea, .form select{
+    width: 15rem;
+    /* height: 2rem; */
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-bottom: 0.8rem;
+    margin-right: 1rem;
+    border: 2px solid #000000;
+    padding: 0.3rem;
+}
+
+.profile .form label{
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+
+.form .name{
+    display: flex;
+}
+
+.form .two-inline{
+    display: flex;
+}
+
+.form h2{
+    margin: 2rem 0 1rem 0;
+}
+
+.form .emp_labour{
+    display: flex;
+}
+
+.form .emp_labour input{
+    width: auto;
+}
+
+.form .emp_labour div{
+    margin-right: 1rem;
+}
+
+
+/* User profile page */
+
+.userprofile{
+    width: 60%;
+    margin: 4rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+    align-self: center;
+}
+
+.userprofile .basic-info{
+    width: 100%;
+    background-color: #0060ba;
+    display: flex;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.userprofile .basic-info h3{
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.userprofile .basic-info p{
+    color: #D69A3E;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.userprofile .pro-details{
+    width: 100%;
+    background-color: #0060ba;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    border-radius: 15px;
+}
+
+.userprofile .basic-info a{
+    color: #fff;
+    background-color: #D69A3E;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    transition: 500ms ease;
+}
+.userprofile .basic-info a:hover{
+    background-color: #fff;
+    color: #000;
+}
+
+.userprofile .pro-details h3{
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.userprofile .pro-details h4{
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.userprofile .pro-details p{
+    color: #D69A3E;
+    font-weight: 600;
+    font-size: 0.8rem;
+}
+
+.userprofile .title{
+    margin-block: 1rem;
+    font-size: 1.4rem;
+    font-weight: 700;
 }
