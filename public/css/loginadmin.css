@@ -10,11 +10,13 @@ body{
     min-height: 100vh;
     width: 100%;
     backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     color: black;
     background-image: url('/img/asset/babcockbbs.png');
+    background-position: center;
 }
 
 .login{
@@ -67,7 +69,7 @@ body{
     border-radius: 8px;
     border:3px solid #d9ae6e;
     color: #fff;
-    background-color: #0060ba;
+
 }
 
 .submit-btn{
