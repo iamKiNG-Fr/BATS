@@ -14,6 +14,8 @@ const guestRoutes = require('./routes/guestRoutes')
 const authRoutes = require('./routes/authRoutes')
 const userRoutes = require('./routes/userRoutes')
 const alumniRoutes = require('./routes/alumniRoutes')
+const adminRoutes = require('./routes/adminRoutes')
+
 
 const port = process.env.PORT || 5000
 
@@ -71,6 +73,7 @@ app.use('/', guestRoutes)
 app.use('/auth', checkNotAuthenticated, authRoutes)
 app.use('/users', userRoutes)
 app.use('/alumni', checkAuthenticated, alumniRoutes)
+app.use('/admin' ,adminRoutes)
 app.get('/logout', (req, res, next)=>{
     req.logout(err => {
         if (err){
@@ -78,6 +81,10 @@ app.get('/logout', (req, res, next)=>{
         }
         res.redirect('/')
     })
+})
+app.use((req, res, next)=>{
+    res.status(404).render("404", {title: 'BATS | 404'} )
+    // res.render("./views/guest/notfound")
 })
 
 

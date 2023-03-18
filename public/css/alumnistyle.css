@@ -125,6 +125,17 @@ footer p, footer a{
     align-items: center;
     justify-content: center;
 }
+.home .info .card:hover{
+    margin-left: 2.2rem;
+    box-shadow: 0 0 10px #003464;
+    background-color: #D69A3E;
+    cursor: pointer;
+}
+
+.home .info .card:hover h3{
+    color: #0060ba;
+    cursor: pointer;
+}
 
 .home .info .card p{
     color: #fff;
@@ -133,6 +144,7 @@ footer p, footer a{
 .home .info .card h3{
     font-size: 5rem;
     color: #D69A3E;
+    transition: 500ms ease;
 }
 
 .home .info .update{
@@ -155,10 +167,17 @@ footer p, footer a{
     color: #fff;
 }
 
+.home .info .update a:hover{
+    margin-left: 2.2rem;
+    box-shadow: 0 0 10px #003464;
+    background-color: #D69A3E;
+    cursor: pointer;
+}
 
 .home .news{
     margin-top: 1rem;
 }
+
 /* track page */
 .main{
     width: 100%;

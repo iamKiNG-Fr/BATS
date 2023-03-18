@@ -90,6 +90,17 @@
                             <div class="td"><a href="/alumni/<%= alumniDias[i].uuid %>">View More...</a></div>
                         </div>
                     <% } %>
+                <% } else if(alumniNear.length > 0) { %>
+                    <% for( let i = 0; i < alumniNear.length; i++ ) { %>
+                        <div class="searchresult">
+                            <div class="td"><p><%= alumniNear[i].last_name %></p></div>
+                            <div class="td"><p><%= alumniNear[i].first_name %></p></div>
+                            <div class="td"><p><%= alumniNear[i].mascot %></p></div>
+                            <div class="td"><p><%= alumniNear[i].occupation %></p></div>
+                            <div class="td"><p><%= alumniNear[i].email %></p></div>
+                            <div class="td"><a href="/alumni/<%= alumniNear[i].uuid %>">View More...</a></div>
+                        </div>
+                    <% } %>
                 <% } else { %>
                     <% for( let i = 0; i < vacancy.length; i++ ) { %>
                         <div class="searchresult">

@@ -8,13 +8,13 @@
         <h2>Welcome <%= name %></h2>
 
         <div class="info">
-            <div class="near card">
+            <a href="/alumni/search/near" class="near card">
                 <p>Alumni near you</p>
-                <h3>00</h3>
-            </div>
-            <div class="findAluni card">
+                <h3><%= alumniNearNum %></h3>
+            </a>
+            <a  href="/alumni/track" class="findAlumni card">
                 <p>Search Alumni</p>
-            </div>
+            </a>
             <div class="update">
                 <a href="/alumni/profile/update" class="details">
                     <h3>Update details</h3>

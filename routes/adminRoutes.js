@@ -3,39 +3,83 @@ const router = express.Router()
 const bcrypt = require('bcrypt')
 
 const { sequelize, bats_users, bats_admin } = require('../sequelize/models') 
+const Sequelize  = require('sequelize')
+const { where } = require('sequelize')
+const Op = Sequelize.Op
 
-// const authController = require('../controllers/authControllers')
+//passport
+const initializePassport = require('../passport-config2')
+const passport = require('passport')
+initializePassport(passport)
 
-//get all users
+//routes
+router.get('/dashboard', checkAdminAuthenticated,async (req, res) => {
+    res.render('../views/admin/adminDash', {title: 'BATS | Admin Dashboard'})
+})
+
+// Register and login route
+router.get('/auth/register', checkAdminAuthenticated,async (req, res) => {
+    res.render('../views/admin/adminReg', {title: 'BATS | Admin Register'})
+})
+
+router.get('/auth/login', async (req, res) => {
+    res.render('../views/admin/adminLogin', {title: 'BATS | Admin Login'})
+})
+
+router.post('/auth/login', passport.authenticate('local', {
+    successRedirect: '/admin/dashboard',
+    failureRedirect: '/admin/auth/login',
+    failureFlash: true
+}))
+
+// auth protection
+//authfunctions
+function checkAdminAuthenticated(req, res, next) {
+    if(req.isAuthenticated()){
+        return next()
+    }
+    res.redirect('/admin/auth/login')
+}
+
+function checkNotAuthenticated(req, res, next) {
+    if(req.isAuthenticated()){
+        return res.redirect('/alumni/home')
+    }
+    next()
+}
+
+
+
+//get admin
 router.get('', async (req, res) => {
     try{
-        const users = await bats_users.findAll()
+        const admins = await bats_admin.findAll()
 
-        return res.json(users)
+        return res.json(admins)
 
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
 })
 
-//get single user
+//get single admin
 router.get('/:uuid', async (req, res) => {
     try{
         const uuid = req.params.uuid
 
-        const singleUser = await bats_users.findOne({where: {uuid}})
+        const singleAdmin = await bats_admin.findOne({where: {uuid}})
         
-       res.json(singleUser)
+       res.json(singleAdmin)
         
     } catch (err){
         console.error(err.message)
     }
 })
 
-//add user
+//add admin
 router.post('', async (req, res) => {
     try{
-        const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password, cpassword} = req.body
+        const {first_name, last_name, email, password, cpassword, access} = req.body
         
         // let errors = []
        
@@ -60,11 +104,11 @@ router.post('', async (req, res) => {
 
             let hashedPassword = await bcrypt.hash(password, 10)
            
-            const user = await bats_users.create({ first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password: hashedPassword})
+            const user = await bats_admin.create({ first_name, last_name, email, password: hashedPassword, access})
             
             console.log('successfully registered')
             
-            return res.redirect('/auth/success')
+            return res.redirect('/admin/auth/login')
                    
         
         // }
@@ -74,59 +118,38 @@ router.post('', async (req, res) => {
     }
 })
 
-//update user
+//update admin
 router.put('/update/:uuid', async (req, res) => {
     
     console.log("here");
 
     const uuid = req.params.uuid
-    const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address} = req.body
-    
-    console.log(uuid);
+    const {first_name, last_name, email} = req.body
 
     try{
-
-
         const user = await bats_users.findOne({where: {uuid}})
 
         user.first_name = first_name 
-        user.last_name = last_name 
-        user.dob = dob 
-        user.gender = gender 
-        user.phone = phone 
+        user.last_name = last_name  
         user.email = email 
-        user.country = country 
-        user.state_of_residence = state_of_residence 
-        user.program = program 
-        user.course = course 
-        user.matric = matric 
-        user.post = post 
-        user.grad_year = grad_year 
-        user.mascot = mascot 
-        user.occupation = occupation 
-        user.job_desc = job_desc 
-        user.emp_of_labour = emp_of_labour 
-        user.vacancy = vacancy 
-        user.office_phone = office_phone 
-        user.office_address = office_address 
         
         await user.save()
 
         console.log('updated!');
 
-        res.redirect('/alumni/home')
+        res.redirect('/admin/dashboard')
         
     } catch (err){
         console.error(err.message)
     }
 })
 
-//delete user
+//delete admin
 router.delete('/:uuid', async (req, res) => {
     try{
         const uuid = req.params.uuid
 
-        const user = await bats_users.findOne({where: {uuid}})
+        const user = await bats_admin.findOne({where: {uuid}})
         
         await user.destroy()
 
@@ -136,6 +159,7 @@ router.delete('/:uuid', async (req, res) => {
         console.error(err.message)
     }
 })
+
 
 
 

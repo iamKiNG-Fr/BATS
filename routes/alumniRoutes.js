@@ -7,9 +7,12 @@ const { where } = require('sequelize')
 const Op = Sequelize.Op
 
 //routes
-router.get('/home', (req, res) => {
-    
-    res.render('../views/alumni/alumniHome', {title: 'BATS | Alumni Home', name: req.user.first_name, userUUId: req.user.uuid})
+router.get('/home', async (req, res) => {
+    const userLocation = req.user.country
+    const alumniNear = await bats_users.findAll({where: { country: userLocation}})
+    const alumniNearNum = alumniNear.length-1
+
+    res.render('../views/alumni/alumniHome', {title: 'BATS | Alumni Home', name: req.user.first_name, userUUId: req.user.uuid, alumniNearNum})
 })
 
 router.get('/track', async (req, res) => {
@@ -102,8 +105,9 @@ router.get('/search/all', async (req, res) => {
         const userNum = alumni.length
         const alumniNG = 0
         const alumniDias = 0
+        const alumniNear = 0
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, alumniNG, alumniDias, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, alumniNear, userNum, alumniNG, alumniDias, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -113,10 +117,11 @@ router.get('/search/nigeria', async (req, res) => {
     try{
         const alumni = 0
         const alumniDias = 0
+        const alumniNear = 0
         const alumniNG = await bats_users.findAll({where: { country: "Nigeria" || "NG"}})
         const alumniNGNum = alumniNG.length
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumni, alumniNG, alumniNGNum, alumniDias, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumni, alumniNear, alumniNG, alumniNGNum, alumniDias, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -125,11 +130,12 @@ router.get('/search/nigeria', async (req, res) => {
 router.get('/search/diaspora', async (req, res) => {
     try{
         const alumni = 0
+        const alumniNear = 0
         const alumniNG = 0
         const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: "Nigeria"}}})
         const alumniDiasNum = alumniDias.length
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, alumniNG, alumniDias, alumniDiasNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, alumniNG, alumniDias, alumniDiasNum, alumniNear, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -140,14 +146,30 @@ router.get('/search/vacancy', async (req, res) => {
         const alumni = 0
         const alumniNG = 0
         const alumniDias = 0
+        const alumniNear = 0
         const vacancy = await bats_users.findAll({where: { emp_of_labour: 't'}})
         const vacancyNum = vacancy.length      
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', vacancy, alumni, alumniDias, alumniNG, vacancyNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', vacancy, alumni, alumniDias, alumniNG, alumniNear, vacancyNum, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
 })
+
+router.get('/search/near', async (req, res) => {
+    try{
+        const userCountry = req.user.country
+        const alumni = 0
+        const alumniNG = 0
+        const alumniDias = 0
+        const alumniNear = await bats_users.findAll({where: { country: userCountry}})   
+
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumniNear, alumni, alumniDias, alumniNG, userUUId: req.user.uuid})
+    }catch(err){
+        return res.status(500).json({error: 'something went wrong'})
+    }
+})
+
 
 router.get('/:uuid', async (req, res) => {
     

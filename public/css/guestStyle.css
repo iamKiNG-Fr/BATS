@@ -122,11 +122,12 @@ a:hover{
     justify-content:center;
     align-items: center;
     background-color: #0060ba;
-    height: 55vh;
+    min-height: 55%;
 }
 
 .hero .text{
     width: 60%;
+    margin-bottom: 2rem;
 }
 
 .hero .text h1{
@@ -512,3 +513,4 @@ a:hover{
     background-color: #D69A3E;
     color: #003464;
 }
+

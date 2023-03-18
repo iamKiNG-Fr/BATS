@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="/admin/auth/login">Login</a>
+    <h1>Admin Register</h1>
+    <form action="/admin" method="POST">
+        <div>
+            <input type="text" name="first_name" placeholder="First Name" >
+        </div>
+        <div>
+            <input type="text" name="last_name" placeholder="Last Name" >
+        </div>
+        <div>
+            <input type="email" name="email" placeholder="E-mail" >
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Password" >
+        </div>
+        <div>
+            <input type="password" name="cpassword" placeholder="Confirm Password" >
+        </div>
+        
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
