@@ -4,29 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="/css/loginadmin.css">
+    <title><%-title %></title>
 </head>
 <body>
-    <a href="/admin/auth/login">Login</a>
-    <h1>Admin Register</h1>
-    <form action="/admin" method="POST">
-        <div>
-            <input type="text" name="first_name" placeholder="First Name" >
+    <div class="register login">
+        <div class="form">
+            <h1>Admin Register</h1>
+            <% if (errors.length > 0){ %>
+                <% errors.forEach(error => { %>
+                    <div class="error-msg">
+                        *<%= error.message%>
+                    </div>
+                <% }) %>
+            <% } %>
+            <form action="/admin" method="POST">
+                <div>
+                    <input type="text" name="first_name" placeholder="First Name" value="<%= admin.first_name %>">
+                </div>
+                <div>
+                    <input type="text" name="last_name" placeholder="Last Name" value="<%= admin.last_name %>" >
+                </div>
+                <div>
+                    <input type="email" name="email" placeholder="E-mail" value="<%= admin.email %>" >
+                </div>
+                <div>
+                    <input type="password" name="password" placeholder="Password" >
+                </div>
+                <div>
+                    <input type="password" name="cpassword" placeholder="Confirm Password" >
+                </div>
+                <div>
+                    <select name="access" id="access">
+                        <option>Select Admin Level</option>
+                        <option value="0">Super Admin</option>
+                        <option value="1">Regular Admin</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
+            <div class="foot">
+                <button onclick="history.back()" class="back">Go Back</button>
+                <p>•</p>     
+                <a href="/admin/auth/login">Login</a>
+            </div>
         </div>
-        <div>
-            <input type="text" name="last_name" placeholder="Last Name" >
-        </div>
-        <div>
-            <input type="email" name="email" placeholder="E-mail" >
-        </div>
-        <div>
-            <input type="password" name="password" placeholder="Password" >
-        </div>
-        <div>
-            <input type="password" name="cpassword" placeholder="Confirm Password" >
-        </div>
-        
-        <button type="submit">Register</button>
-    </form>
+    </div>
 </body>
 </html>

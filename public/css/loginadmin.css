@@ -68,10 +68,19 @@ body{
     outline: none;
     border-radius: 8px;
     border:3px solid #d9ae6e;
-    color: #fff;
-
 }
 
+select{
+    margin: 0.5rem 0rem;
+    width: 20rem;
+    height: 2.7rem;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    outline: none;
+    border-radius: 8px;
+    border:3px solid #d9ae6e;
+}
 .submit-btn{
     width: 20rem;
     height: 2.3rem;
@@ -95,4 +104,24 @@ body{
 .foot{
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.error-msg{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.back{
+    background-color: white;
+    border: none;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #989898;
+    transition: 500ms ease;
+}
+.back:hover{
+    cursor: pointer;
+    color: #d9ae6e;
 }

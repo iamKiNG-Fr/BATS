@@ -8,42 +8,50 @@ const { where } = require('sequelize')
 const Op = Sequelize.Op
 
 //passport
-const initializePassport = require('../passport-config2')
+const initializePassport = require('../passport-config')
 const passport = require('passport')
+const flash = require('express-flash')
 initializePassport(passport)
 
 //routes
-router.get('/dashboard', checkAdminAuthenticated,async (req, res) => {
+router.get('/dashboard', checkAdminAuthenticated, async (req, res) => {
     res.render('../views/admin/adminDash', {title: 'BATS | Admin Dashboard'})
 })
 
+router.get('/admins',async (req, res) => {
+    res.render('../views/admin/adminsPage', {title: 'BATS | Admin Page'})
+})
+
+
 // Register and login route
 router.get('/auth/register', checkAdminAuthenticated,async (req, res) => {
-    res.render('../views/admin/adminReg', {title: 'BATS | Admin Register'})
+    const errors = []
+    res.render('../views/admin/adminReg', {title: 'BATS | Admin Register', errors, admin: req.body})
 })
 
 router.get('/auth/login', async (req, res) => {
-    res.render('../views/admin/adminLogin', {title: 'BATS | Admin Login'})
+
+    const message = req.flash('success')
+    res.render('../views/admin/adminLogin', {title: 'BATS | Admin Login', message})
 })
 
-router.post('/auth/login', passport.authenticate('local', {
+router.post('/auth/login', passport.authenticate('admin', {
     successRedirect: '/admin/dashboard',
     failureRedirect: '/admin/auth/login',
     failureFlash: true
 }))
 
 // auth protection
-//authfunctions
-function checkAdminAuthenticated(req, res, next) {
+function checkAdminNotAuthenticated(req, res, next) {
     if(req.isAuthenticated()){
         return next()
     }
     res.redirect('/admin/auth/login')
 }
 
-function checkNotAuthenticated(req, res, next) {
+function checkAdminAuthenticated(req, res, next) {
     if(req.isAuthenticated()){
-        return res.redirect('/alumni/home')
+        return res.redirect('/admin/dashboard')
     }
     next()
 }
@@ -81,37 +89,39 @@ router.post('', async (req, res) => {
     try{
         const {first_name, last_name, email, password, cpassword, access} = req.body
         
-        // let errors = []
+        let errors = []
        
-        // // form validation 
+        // form validation 
 
+        if(password.length < 5 ){
+            errors.push({message : "passwords not long enough"})
+        }
 
-        // if(password.length < 5 ){
-        //     errors.push({message : "passwords not long enough"})
-        // }
+        if(password != cpassword ){
+            errors.push({message : "passwords do not match"})
+        }
 
-        // if(password != cpassword ){
-        //     errors.push({message : "passwords do not match"})
-        // }
-
-        // if(errors.length > 0 ){
-        //     console.log(error);
-        //     // res.render('../views/guest/register', {errors})
-        // }
+        if(!access){
+            errors.push({message : "select an access level"})
+        }
+        if(errors.length > 0 ){
+            console.log(errors);
+            res.render('../views/admin/adminReg', {title: 'BATS | Admin Register', errors, admin: req.body})
+        }
        
-        // // Form validaiton passed
-        // else{
+        // Form validaiton passed
+        else{
 
             let hashedPassword = await bcrypt.hash(password, 10)
            
             const user = await bats_admin.create({ first_name, last_name, email, password: hashedPassword, access})
             
-            console.log('successfully registered')
+            req.flash('success', 'successfully registered')
             
             return res.redirect('/admin/auth/login')
                    
         
-        // }
+        }
         
     } catch (err){
         console.error(err.message)

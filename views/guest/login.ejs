@@ -25,7 +25,9 @@
             <form action="/auth/login" method="POST">
                 
                 <% if (messages.error){ %>
-                    <%= messages.error %>
+                    <div class="error-msg">
+                        <%= messages.error %>
+                    </div>
                 <% } %>
                 
                 <div>

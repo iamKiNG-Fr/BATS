@@ -15,6 +15,13 @@ body{
     /* background-color:rgba(30, 75, 152, 0.486); */
 }
 
+.error-msg{
+    color: red;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
 .loginleft{
     background-color: white;
     width: 50%;
@@ -142,3 +149,4 @@ a:hover{
     background-color: #D69A3E;
     color: #0b3b69;
 }
+

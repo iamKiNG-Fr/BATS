@@ -6,7 +6,8 @@ const express = require('express')
 const morgan = require('morgan')
 const flash = require('express-flash')
 const session = require('express-session')
-const passport = require('passport')
+const passport1 = require('passport')
+const passport2 = require('passport')
 const methodOverride = require('method-override')
 
 const app = express()
@@ -40,8 +41,10 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
-app.use(passport.initialize())
-app.use(passport.session())
+app.use(passport1.initialize())
+app.use(passport1.session())
+app.use(passport2.initialize())
+app.use(passport2.session())
 app.use(methodOverride('_method'))
 // method overide
 app.use(methodOverride(function (req, res) {

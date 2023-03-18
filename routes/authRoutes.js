@@ -6,9 +6,9 @@ const authController = require('../controllers/authControllers')
 const app = express()
 
 //passport
-const initializePassport = require('../passport-config')
+const initializePassport1 = require('../passport-config')
 const passport = require('passport')
-initializePassport(passport)
+initializePassport1(passport)
 
 
 
@@ -20,7 +20,7 @@ router.get('/register', authController.register)
 
 router.get('/success', authController.success)
 
-router.post('/login', passport.authenticate('local', {
+router.post('/login', passport.authenticate('alumni', {
     successRedirect: '/alumni/home',
     failureRedirect: '/auth/login',
     failureFlash: true

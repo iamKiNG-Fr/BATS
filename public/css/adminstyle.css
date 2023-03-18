@@ -199,3 +199,13 @@ a:hover{
     padding: 1rem;
     color: white;
 }
+
+.admins-page{
+    width: 70%;
+    margin: 4rem 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-start;
+    align-items: center;
+    align-self: center;
+}

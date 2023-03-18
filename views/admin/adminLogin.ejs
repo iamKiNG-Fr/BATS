@@ -5,15 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/loginadmin.css">
-    <title>Document</title>
+    <title><%-title %></title>
 </head>
 <body>
     <div class="login">
         <div class="form">
             <h1>Admin Login</h1>
             <% if (messages.error){ %>
-                <%= messages.error %>
-                <% } %>
+                <div class="error-msg">
+                    *<%= messages.error %>
+                </div>
+            <% } %>
+            <% if (message) { %>
+                <%= message %>
+            <% } %>
                 <form action="/admin/auth/login" method="POST">
                     <div>
                         <input type="email" name="email" placeholder="E-mail" >
@@ -24,9 +29,9 @@
                     <button type="submit" class="submit-btn">Login</button>
                 </form>
                 <div class="foot">
-                    <a href="/admin/auth/register">Register</a>
+                    <a href="/">BATS Home</a>
                     <p>•</p> 
-                    <a href="/alumni/auth/login">Alumni</a>
+                    <a href="/alumni/auth/login">Alumni Login</a>
                 </div>
         </div>
     </div>
