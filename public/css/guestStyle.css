@@ -121,13 +121,17 @@ a:hover{
     margin-bottom: 2rem;
     justify-content:center;
     align-items: center;
-    background-color: #0060ba;
-    min-height: 55%;
+    background-image: linear-gradient(to top, rgba(0, 0, 0, 0.548) 20%, #000000b6 100%, #000000c2 0%), url('/img/asset/alumni-hero3.jpg') ;
+    background-position: left top;
+    background-size: cover;
+    min-height: 30rem;
 }
+ 
 
 .hero .text{
     width: 60%;
     margin-bottom: 2rem;
+    backdrop-filter: blur(5px);
 }
 
 .hero .text h1{
@@ -158,6 +162,7 @@ a:hover{
     display: flex;
     margin-bottom: 2.5rem;
     justify-content: space-between;
+    align-items: center;
 }
 
 .main .why .text{
@@ -176,7 +181,10 @@ a:hover{
 
 .main .why .img{
     width: 50%;
-    background-color: #bddfff9f;
+    height: 16rem;
+    background-image: url('/img/asset/alumni-why3.jpg');
+    background-size: cover;
+    background-position: center;
     border-radius: 10px;
 }
 
@@ -219,9 +227,26 @@ a:hover{
     line-height: 1.5;
 }
 
+.main .benefits .engage .img{
+    background-image: url('/img/asset/alumni-benefit1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.main .benefits .success .img{
+    background-image: url('/img/asset/alumni-benefit3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.main .benefits .data .img{
+    background-image: url('/img/asset/alumni-benefit5.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
 .main .card .img{
     height: 10rem;
-    background-color: #bddfff9f;
     border-radius: 10px;
 }
 
