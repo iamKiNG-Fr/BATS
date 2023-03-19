@@ -49,6 +49,72 @@ nav{
 nav a{
     color: #ffffff;
 }
+nav .icon {
+    display: none;
+}
+
+/* responsive nav */
+@media screen and (max-width: 700px) {
+    body{
+        padding-top: 0;
+    }
+
+    nav div:not(:first-child) {display: none;}
+    nav a.icon {
+        float: right;
+        display: block;
+    }
+    nav.responsive {
+        position: relative;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
+    nav.responsive a.icon {
+        position: absolute;
+        right: 16px;
+        top: 25px;
+    }
+    nav.responsive div{
+        margin-bottom: 1rem;
+        display: block;
+    }
+    nav.responsive .navmain a{
+        width: 100%;
+        margin-bottom: 0.8rem;
+        margin-left: 0;
+        text-align: center;
+        border-bottom: 1px solid #d9ae6e;
+        padding-bottom: 0.5rem;
+    }
+    nav.responsive .navmain a:hover{
+        color: #003464;
+        background-color: #D69A3E;
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+    nav.responsive .navmain{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    nav.responsive .navright{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 4.5rem;
+        justify-content: space-between;
+    }
+    nav.responsive .navright a{
+        text-align: center;
+        margin-bottom: 0.8;
+    }
+}
+
 .logo{
     display: flex; 
 }
@@ -116,7 +182,8 @@ a:hover{
 }
 
 .hero{
-    margin-top: 3rem;
+    margin-top: 0;
+    padding-top: 4rem;
     display: flex;
     margin-bottom: 2rem;
     justify-content:center;
