@@ -160,6 +160,7 @@ a:hover{
 
 .main .why{
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: 2.5rem;
     justify-content: space-between;
     align-items: center;
@@ -180,6 +181,7 @@ a:hover{
 }
 
 .main .why .img{
+    min-width: 16rem;
     width: 50%;
     height: 16rem;
     background-image: url('/img/asset/alumni-why3.jpg');
@@ -539,3 +541,49 @@ a:hover{
     color: #003464;
 }
 
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .main .why{
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+        justify-content: space-evenly;
+    } 
+    
+    .main .why .text{
+        width: 100%;
+    }
+    
+    .main .why .text h2{
+        text-align: center;
+        margin-block: 1rem;
+        color: #003464;
+        text-transform:uppercase;
+    }
+
+    .main .cards{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    
+    .main .card{
+        margin-top: 1rem;
+        width: 100%;
+    }
+    
+    footer{
+        flex-direction: column;
+        justify-content: space-between;
+        background-color: #003464;
+        color: #fff;
+        padding: 2rem 6rem;
+    }
+    footer h4{
+        margin-block: 1rem;
+        color: #D69A3E;
+    }
+    .batslogo{
+        text-align: center;
+    }
+}
