@@ -15,11 +15,34 @@ initializePassport(passport)
 
 //routes
 router.get('/dashboard', checkAdminAuthenticated, async (req, res) => {
-    res.render('../views/admin/adminDash', {title: 'BATS | Admin Dashboard'})
+
+
+
+    const regAlumni = await bats_users.findAll()
+    const regAlumniNum = regAlumni.length
+
+    const regCountries = await bats_users.findAll({attributes:['country'], group: ['country']})
+    const regCountriesNum = regCountries.length
+
+    const alumni = await bats_users.findAll({order: ['created_at']})
+
+    res.render('../views/admin/adminDash', {title: 'BATS | Admin Dashboard', regAlumniNum, regCountriesNum, alumni})
 })
 
 router.get('/admins',async (req, res) => {
     res.render('../views/admin/adminsPage', {title: 'BATS | Admin Page'})
+})
+
+
+//api
+router.get('/regcountries',async (req, res) => {
+    try{
+        const regCountries = await bats_users.findAll({attributes:['country', [sequelize.fn('count', sequelize.col('country')), 'cnt']], group: ['country']})
+        return res.json(regCountries)
+
+    }catch(err){
+        return res.status(500).json({error: 'something went wrong'})
+    }
 })
 
 
