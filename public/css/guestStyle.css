@@ -30,6 +30,16 @@ body::-webkit-scrollbar-thumb:hover{
     background-color: #003464;
 }
 
+/* preloader */
+#preloader{
+    background: #fff url('/img/asset/loader.gif') no-repeat center center;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 999999999;
+    background-size: 20%;
+}
 
 
 nav{
