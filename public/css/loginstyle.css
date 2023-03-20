@@ -150,3 +150,17 @@ a:hover{
     color: #0b3b69;
 }
 
+@media only screen and (max-width: 833px) {
+    /* responsive login and register page */
+    .loginleft{
+        width: 100%;
+    }
+    .loginright{
+        width: 0%;
+        margin: 0;
+        padding: 0;
+    }
+    .loginright a {
+        display: none;
+    }
+}
