@@ -11,7 +11,10 @@
     "dialect": "postgres"
   },
   "production": {
-    "url": "process.env.DATABASE_URL",
+    "username": "bats",
+    "password": "WGTZfXHMJByZVc19kNKpE5BCdvx8GXiB",
+    "database": "bats",
+    "host": "dpg-cgc2jil269v4icu0iea0-a",
     "dialect": "postgres"
   }
 }
