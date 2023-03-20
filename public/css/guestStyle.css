@@ -112,6 +112,7 @@ nav .icon {
         text-align: center;
         border-bottom: 1px solid #d9ae6e;
         padding-bottom: 0.5rem;
+        transition: 100ms ease;
     }
     nav.responsive .navmain a:hover{
         color: #003464;
@@ -379,12 +380,16 @@ a:hover{
     align-items: center;
 }
 
+.track .map{
+    width: 100%;
+}
+
 .onmap{
     display: flex;
     opacity: 0;
     position: absolute;
     display: flex;
-    width: 70rem;
+    width: 100%;
     height: 20rem;
     justify-content: center;
     align-items: center;
@@ -411,7 +416,7 @@ a:hover{
 }
 
 .track #mapp{
-    width: 70rem;
+    width: 100%;
     height: 20rem;
     background-color: #bddfff9f;
     border-radius: 15px;
@@ -420,6 +425,7 @@ a:hover{
 
 .track .onmap:hover{
     backdrop-filter: blur(8px );
+    -webkit-backdrop-filter: blur(8px);
     z-index: 222;}
 
 
@@ -634,6 +640,8 @@ a:hover{
 
 @media only screen and (max-width: 768px) {
     /* For mobile phones: */
+
+    /* main page */
     .main .why{
         display: flex;
         flex-wrap: wrap;
@@ -669,12 +677,15 @@ a:hover{
         background-color: #003464;
         color: #fff;
         padding: 2rem 6rem;
+        text-align: center;
     }
     footer h4{
         margin-block: 1rem;
         color: #D69A3E;
     }
-    .batslogo{
-        text-align: center;
+
+    /* track page */
+    .track{
+        margin-top: 5.5rem;
     }
 }

@@ -15,12 +15,12 @@ function initMap(){
 
 function displayRegister(){
     const map = document.querySelector(".onmap")
-    console.log("im on map");
+    // console.log("im on map");
     map.style.opacity = "1";
 }
 
 function removeRegister(){
     const map = document.querySelector(".onmap")
-    console.log("remove map");
+    // console.log("remove map");
     map.style.opacity = "0"
 }
