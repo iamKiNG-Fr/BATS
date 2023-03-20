@@ -25,6 +25,7 @@ const { sequelize, bats_users } = require('./sequelize/models')
  
 const connectDb = async () => {
     await sequelize.authenticate()
+    await sequelize.sync()
 }
 
 //view engine
