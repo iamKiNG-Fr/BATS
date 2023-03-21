@@ -37,13 +37,37 @@ router.post('', async (req, res) => {
     try{
         const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password, cpassword} = req.body
         
+        const batAlumni = bats_users.findAll({where: {email: email}})
+        const batsAlumnimatric = bats_users.findAll({where: {matric: matric}})
+
         let errors = []
        
         // form validation 
-        console.log("im here");
+        if (batAlumni) {
+            errors.push({message : "user exists with email"})
+        }
+        if (batsAlumnimatric) {
+            errors.push({message : "user exists with matric number"})
+        }
+        if(grad_year == ''){
+            errors.push({message : "enter graduation year"})
+        }
+        if(program == ''){
+            errors.push({message : "enter a program"})
+        }
+        if(course == ''){
+            errors.push({message : "enter a course"})
+        }
+        if(email == ''){
+            errors.push({message : "enter your email"})
+        }
 
+        if(matric == ''){
+            errors.push({message : "enter your matric number"})
+        }
+        
         if(password.length < 5 ){
-            errors.push({message : "passwords not long enough"})
+            errors.push({message : "password must be 5 characters or more"})
         }
 
         if(password != cpassword ){
@@ -51,7 +75,7 @@ router.post('', async (req, res) => {
         }
 
         if(errors.length > 0 ){
-            console.log(errors);
+            // console.log(errors);
             res.render('../views/guest/register', {title: 'BATS | Alumni Register', errors, alumni: req.body})
         }
        
