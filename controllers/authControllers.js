@@ -6,7 +6,8 @@ const login = (req, res) => {
 }
 
 const register =  (req, res) => {
-    res.render('../views/guest/register', {title: 'BATS | Register', errors: '', alumni: ''})
+    const errors = []
+    res.render('../views/guest/register', {title: 'BATS | Register', errors, alumni: ''})
 }
 
 const success = (req, res) => {

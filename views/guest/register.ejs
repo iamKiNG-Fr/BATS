@@ -19,28 +19,29 @@
             <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
             <h3>Babcock Alumni <br>Tracking  System<br>(BATS)</h3>
         </a>
-        <% if (errors.length > 0){ %>
-            <% errors.forEach(error => { %>
-                <div class="error-msg">
-                    *<%= error.message%>
-                </div>
-            <% }) %>
-        <% } %>
-       
+        
         <div class="form">
             <form action="/users" method="POST" id="regForm">
-
+                
                 <h2>Alumni Registration</h2>
-    
+                
+                <% if (errors.length > 0){ %>
+                    <% errors.forEach(error => { %>
+                        <div class="error-msg">
+                            *<%= error.message%>
+                        </div>
+                    <% }) %>
+                <% } %>
                 <div class="personal-details tab">
                     <div>
-                        <input type="text" name="first_name" id="fname" placeholder="First Name" required>
+                        <input type="text" name="first_name" id="fname" placeholder="First Name*" value="<%= alumni.first_name %>" required>
                     </div>
                     <div>
-                        <input type="text" name="last_name" id="lname" placeholder="Last Name"  required>
+                        <input type="text" name="last_name" id="lname" placeholder="Last Name*" value="<%= alumni.last_name %>" required>
                     </div>
-                    <div>
-                        <input type="text" name="dob" id="dob" onfocus="(this.type = 'date')" onblur="if(this.value==''){this.type='text'}" placeholder="Birthday" required>
+                    <div class="date">
+                        <label for="dob">Birthday*</label>
+                        <input type="date" name="dob" id="dob" min="1900-01-01" max="2007-12-31" value="<%= alumni.dob %>" required>
                     </div>
                     <div>
                         <select name="gender" id="gender" >
@@ -51,15 +52,15 @@
                         </select>
                     </div>
                     <div>
-                        <input type="number" name="phone" id="phone" placeholder="Phone Number"  required>
+                        <input type="number" name="phone" id="phone" placeholder="Phone Number*" value="<%= alumni.phone %>" required>
                     </div>
                     <div>
-                        <input type="email" name="email" id="email" placeholder="Email"  required>
+                        <input type="email" name="email" id="email" placeholder="Email*" value="<%= alumni.email %>" required>
                     </div>
                     <div>
                         <div>
                             <select name="country" id="country">
-                                <option>select country</option>
+                                <option>select country*</option>
                                 <option value="AF">Afghanistan</option>
                                 <option value="AX">Aland Islands</option>
                                 <option value="AL">Albania</option>
@@ -315,7 +316,7 @@
                             </select>
                         </div>
                         <div>
-                            <input type="state_of_residence" name="state_of_residence" id="state_of_residence" placeholder="State">
+                            <input type="text" name="state_of_residence" id="state_of_residence" placeholder="State*" value="<%= alumni.state_of_residence %>">
                         </div>
                     </div>
                     <!-- for uploading images -->
@@ -326,8 +327,9 @@
                 </div>   
                 <div class="school-info tab">
                     <div>
-                        <select name="program" id="program" >
-                            <option selected> Program</option>
+                        <select name="program" id="program">
+                            <option selected> Program*
+                            </option>
                         </select>
                     </div>
                     <div>
@@ -336,7 +338,7 @@
                         </select>
                     </div>
                     <div>
-                        <input type="text" name="matric" id="matric" placeholder="Matric Number">
+                        <input type="text" name="matric" id="matric" placeholder="Matric Number*" value="<%= alumni.matric %>"required>
                     </div>
                     <div>
                         <select name="role" id="role" >
@@ -347,29 +349,36 @@
                             <option value="none"> none </option>
                         </select>
                     </div> 
-                    <div>
-                        <input type="text" name="grad_year" id="gradyear" onfocus="(this.type = 'month')" onblur="if(this.value==''){this.type='text'}" placeholder="Graduation Year">
+                    <div class="date">
+                        <label for="gradyear">Grad. Year</label>
+                        <input type="month" name="grad_year" id="gradyear" min="1950-01-01" value="<%= alumni.grad_year %>">
                     </div>
                     <div>
-                        <input type="text" name="mascot" id="mascot" placeholder="Mascot">
+                        <select name="mascot" id="mascot" >
+                            <option selected> Class Name</option>
+                            <option value="BUSA"> Zircon</option>
+                            <option value="BUCC"> Aquila</option>
+                            <option value="others"> Onyx </option>
+                            <option value="none"> others </option>
+                        </select>
                     </div>
                 </div> 
                 <div class="professional-info tab">
                     <div>
-                        <input type="text" name="occupation" id="occupation" placeholder="Current Occupation">
+                        <input type="text" name="occupation" id="occupation" placeholder="Current Occupation" value="<%= alumni.occupation %>">
                     </div>
                     <div>
-                        <input type="text" name="job_desc" id="job_desc" placeholder="Job Description">
+                        <input type="text" name="job_desc" id="job_desc" placeholder="Job Description" value="<%= alumni.job_desc %>">
                     </div>
                     <div class="emp_of_labour">
                         <label for="">Are you an employer of employer of labour?</label>
                         <div class="emp_labour">
                             <div>
-                                <input type="radio" name="emp_of_labour" id="yes" value="1">
+                                <input type="radio" name="emp_of_labour" id="yes" value="1" onclick="addVacancy()">
                                 <label for="yes" onclick="addVacancy()">Yes</label>
                             </div>
                             <div>
-                                <input type="radio" name="emp_of_labour" id="no" value="0">
+                                <input type="radio" name="emp_of_labour" id="no" value="0" onclick="removeVacancy()">
                                 <label for="no" onclick="removeVacancy()">No</label>
                             </div>
                         </div>
@@ -378,13 +387,13 @@
                         <div>
                             <label for="vacancy">What Available jobs can you provide?</label>
                             <br>
-                            <textarea id="vacancy" name="vacancy" rows="4" cols="50"></textarea>
+                            <textarea id="vacancy" name="vacancy" rows="4" cols="50" value="<%= alumni.vacancy %>"></textarea>
                         </div>
                         <div>
-                            <input type="text" name="office_phone" id="office_phone" placeholder="Office Number">
+                            <input type="text" name="office_phone" id="office_phone" placeholder="Office Number" value="<%= alumni.office_phone %>">
                         </div>
                         <div>
-                            <input type="text" name="office_address" id="office_address" placeholder="Office Address">
+                            <input type="text" name="office_address" id="office_address" placeholder="Office Address" value="<%= alumni.office_address %>">
                         </div>
                     </div>
                 </div>

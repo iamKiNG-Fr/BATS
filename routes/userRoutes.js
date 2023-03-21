@@ -40,7 +40,7 @@ router.post('', async (req, res) => {
         let errors = []
        
         // form validation 
-
+        console.log("im here");
 
         if(password.length < 5 ){
             errors.push({message : "passwords not long enough"})
@@ -51,7 +51,7 @@ router.post('', async (req, res) => {
         }
 
         if(errors.length > 0 ){
-            console.log(error);
+            console.log(errors);
             res.render('../views/guest/register', {title: 'BATS | Alumni Register', errors, alumni: req.body})
         }
        

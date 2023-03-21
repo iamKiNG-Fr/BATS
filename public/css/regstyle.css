@@ -229,6 +229,16 @@ a:hover{
     margin-top: 1rem;
 }
 
+.date input{
+    margin-top: 0;
+}
+
+.date label{
+    margin-left: 0.8rem;
+    font-size: 0.9rem;
+    color: #1772c7;
+}
+
 /* Multi form */
 .tab{
     display: none;
