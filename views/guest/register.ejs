@@ -6,6 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title> <%-title %></title>
         <link rel="stylesheet" type="text/css" href="/css/regstyle.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <script src="/js/register.js" defer></script>
     </head>
 
@@ -17,7 +19,13 @@
             <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
             <h3>Babcock Alumni <br>Tracking  System<br>(BATS)</h3>
         </a>
-
+        <% if (errors.length > 0){ %>
+            <% errors.forEach(error => { %>
+                <div class="error-msg">
+                    *<%= error.message%>
+                </div>
+            <% }) %>
+        <% } %>
        
         <div class="form">
             <form action="/users" method="POST" id="regForm">
@@ -32,7 +40,7 @@
                         <input type="text" name="last_name" id="lname" placeholder="Last Name"  required>
                     </div>
                     <div>
-                        <input type="month" name="dob" id="dob" placeholder="Birthday" required>
+                        <input type="text" name="dob" id="dob" onfocus="(this.type = 'date')" onblur="if(this.value==''){this.type='text'}" placeholder="Birthday" required>
                     </div>
                     <div>
                         <select name="gender" id="gender" >
@@ -318,19 +326,29 @@
                 </div>   
                 <div class="school-info tab">
                     <div>
-                        <input type="program" name="program" id="program" placeholder="Program">
+                        <select name="program" id="program" >
+                            <option selected> Program</option>
+                        </select>
                     </div>
                     <div>
-                        <input type="text" name="course" id="course" placeholder="Course">
+                        <select name="course" id="course" >
+                            <option selected> course</option>
+                        </select>
                     </div>
                     <div>
                         <input type="text" name="matric" id="matric" placeholder="Matric Number">
                     </div>
                     <div>
-                        <input type="text" name="post" id="role" placeholder="Role if any">
+                        <select name="role" id="role" >
+                            <option selected> Role if any</option>
+                            <option value="BUSA"> BUSA official</option>
+                            <option value="BUCC"> BUCC official</option>
+                            <option value="others"> others </option>
+                            <option value="none"> none </option>
+                        </select>
                     </div> 
                     <div>
-                        <input type="date" name="grad_year" id="gradyear" placeholder="Graduation Year">
+                        <input type="text" name="grad_year" id="gradyear" onfocus="(this.type = 'month')" onblur="if(this.value==''){this.type='text'}" placeholder="Graduation Year">
                     </div>
                     <div>
                         <input type="text" name="mascot" id="mascot" placeholder="Mascot">
@@ -382,8 +400,8 @@
                 </div>
                 <div class="ctrl-btn">
                     
-                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="prev-btn">◀ Back</button>
-                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="next-btn">Next</button>
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)" class="prev-btn"> <i class="fa fa-arrow-left" aria-hidden="true"></i>Back</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)" class="next-btn">  Next</button>
                     <button type="submit" class="submit-btn subBtn">Register</button>
                 </div>
             </form>

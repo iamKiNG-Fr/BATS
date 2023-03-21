@@ -1,19 +1,24 @@
-<nav>
-    <div class="navleft">
-        <a href="/alumni/home" class="logo">
-            <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
-            <p>Babcock Alumni <br>tracking  System<br>(BATS)</p>
+<header>
+    <nav class="topnav">
+        <div class="navleft">
+            <a href="/alumni/home" class="logo">
+                <img src="/img/asset/bu_logo.png" alt="Babcock Alumni Logo">
+                <p>Babcock Alumni <br>tracking  System<br>(BATS)</p>
+            </a>
+        </div>
+        <div class="navmain">
+            <a href="/alumni/home">Home</a>
+            <a href="/alumni/track">Track</a>
+            <a href="/alumni/about">About Us</a>
+            <a href="/alumni/contact">Contact</a>
+        </div>
+        <div class="navright">
+            <a href="/logout">Logout</a>
+            <a href="/alumni/me/<%= userUUId %>">Profile</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
         </a>
-    </div>
-    <div class="navmain">
-        <a href="/alumni/home">Home</a>
-        <a href="/alumni/track">Track</a>
-        <a href="/alumni/about">About Us</a>
-        <a href="/alumni/contact">Contact</a>
-    </div>
-    <div class="navright">
-        <a href="/logout">Logout</a>
-        <a href="/alumni/me/<%= userUUId %>">Profile</a>
-    </div>
-</nav>
+    </nav>
+</header>
 

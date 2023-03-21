@@ -37,26 +37,26 @@ router.post('', async (req, res) => {
     try{
         const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password, cpassword} = req.body
         
-        // let errors = []
+        let errors = []
        
-        // // form validation 
+        // form validation 
 
 
-        // if(password.length < 5 ){
-        //     errors.push({message : "passwords not long enough"})
-        // }
+        if(password.length < 5 ){
+            errors.push({message : "passwords not long enough"})
+        }
 
-        // if(password != cpassword ){
-        //     errors.push({message : "passwords do not match"})
-        // }
+        if(password != cpassword ){
+            errors.push({message : "passwords do not match"})
+        }
 
-        // if(errors.length > 0 ){
-        //     console.log(error);
-        //     // res.render('../views/guest/register', {errors})
-        // }
+        if(errors.length > 0 ){
+            console.log(error);
+            res.render('../views/guest/register', {title: 'BATS | Alumni Register', errors, alumni: req.body})
+        }
        
-        // // Form validaiton passed
-        // else{
+        // Form validaiton passed
+        else{
 
             let hashedPassword = await bcrypt.hash(password, 10)
            
@@ -67,7 +67,7 @@ router.post('', async (req, res) => {
             return res.redirect('/auth/success')
                    
         
-        // }
+        }
         
     } catch (err){
         console.error(err.message)
