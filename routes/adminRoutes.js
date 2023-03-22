@@ -26,7 +26,7 @@ router.get('/dashboard',  async (req, res) => {
 
     const alumni = await bats_users.findAll({order: ['created_at']})
 
-    res.render('../views/admin/adminDash', {title: 'BATS | Admin Dashboard', regAlumniNum, regCountriesNum, alumni})
+    res.render('../views/admin/admindash', {title: 'BATS | Admin Dashboard', regAlumniNum, regCountriesNum, alumni})
 })
 
 router.get('/admins',async (req, res) => {
