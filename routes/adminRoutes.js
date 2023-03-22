@@ -26,6 +26,8 @@ router.get('/dashboard',  async (req, res) => {
 
     const alumni = await bats_users.findAll({order: ['created_at']})
 
+    console.log(alumni[0].first_name);
+
     res.render('../views/admin/admindash', {title: 'BATS | Admin Dashboard', regAlumniNum, regCountriesNum, alumni})
 })
 
