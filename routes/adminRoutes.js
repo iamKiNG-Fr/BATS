@@ -12,10 +12,10 @@ const initializePassport = require('../passport-config')
 const passport = require('passport')
 const flash = require('express-flash')
 initializePassport(passport)
-
+console.log("admin here");
 //routes
-router.get('/dashboard', checkAdminAuthenticated, async (req, res) => {
-
+router.get('/dashboard',  async (req, res) => {
+    console.log("im here");
 
 
     const regAlumni = await bats_users.findAll()

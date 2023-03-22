@@ -692,7 +692,15 @@ a:hover{
     /* For mobile phones: */
 
     /* main page */
-    
+    .hero .text h1{
+        text-align: center;
+        font-size: 2.5rem;
+    }
+    .hero .text p{
+        color: #fff;
+        text-align: center;
+        text-justify: auto;
+    }
     .main .why{
         display: flex;
         flex-wrap: wrap;
