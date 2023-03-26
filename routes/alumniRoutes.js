@@ -11,7 +11,9 @@ router.get('/home', async (req, res) => {
     const userLocation = req.user.country
     const alumniNear = await bats_users.findAll({where: { country: userLocation}})
     const alumniNearNum = alumniNear.length-1
-
+    const email1 = "francisking1st@gmail.com"
+    const batAlumni = await bats_users.findAll({where: {email: email1}})
+    console.log("im here", batAlumni.email);
     res.render('../views/alumni/alumniHome', {title: 'BATS | Alumni Home', name: req.user.first_name, userUUId: req.user.uuid, alumniNearNum})
 })
 

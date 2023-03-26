@@ -37,16 +37,19 @@ router.post('', async (req, res) => {
     try{
         const {first_name, last_name, dob, gender, phone, email, country, state_of_residence, program, course, matric, post, grad_year, mascot, occupation, job_desc, emp_of_labour, vacancy, office_phone, office_address, password, cpassword} = req.body
         
-        const batAlumni = bats_users.findAll({where: {email: email}})
-        const batsAlumnimatric = bats_users.findAll({where: {matric: matric}})
-
+        const batAlumni = await bats_users.findAll({where: {email: email}})
+        console.log(batAlumni);
+        const batsAlumnimatric = await bats_users.findAll({where: {matric: matric}})
+        console.log(batsAlumnimatric);
         let errors = []
        
         // form validation 
-        if (batAlumni) {
+        if (batAlumni == []) {
+            console.log("user email exist");
             errors.push({message : "user exists with email"})
         }
-        if (batsAlumnimatric) {
+        if (batsAlumnimatric == []) {
+            console.log("user matric exist");
             errors.push({message : "user exists with matric number"})
         }
         if(grad_year == ''){
@@ -75,7 +78,7 @@ router.post('', async (req, res) => {
         }
 
         if(errors.length > 0 ){
-            // console.log(errors);
+            console.log(errors);
             res.render('../views/guest/register', {title: 'BATS | Alumni Register', errors, alumni: req.body})
         }
        
