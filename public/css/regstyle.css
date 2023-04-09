@@ -8,6 +8,8 @@
 html{
     background-image: url('/img/asset/babcockbbs.png');
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
 
 body{

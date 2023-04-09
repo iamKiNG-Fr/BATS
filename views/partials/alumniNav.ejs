@@ -13,8 +13,12 @@
             <a href="/alumni/contact">Contact</a>
         </div>
         <div class="navright">
-            <a href="/logout">Logout</a>
-            <a href="/alumni/me/<%= userUUId %>">Profile</a>
+            <p>Welcome,</p>
+            <a onclick="userOptions()"><%= name %></a>
+            <div class="user-options" onmouseleave="remoneOptions()" onkeydown="remoneOptions()">
+                <a href="/alumni/me/<%= userUUId %>">Profile</a>
+                <a href="/logout">Logout</a>
+            </div>
         </div>
         <a href="javascript:void(0);" class="icon" onclick="myFunction()">
             <i class="fa fa-bars"></i>

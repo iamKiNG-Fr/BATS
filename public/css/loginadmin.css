@@ -17,6 +17,9 @@ body{
     color: black;
     background-image: url('/img/asset/babcockbbs.png');
     background-position: center;
+    background-repeat: none;
+    background-size: cover;
+
 }
 
 .login{

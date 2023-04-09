@@ -28,7 +28,7 @@ router.get('/track', async (req, res) => {
         const vacancy = await bats_users.findAll({where: { emp_of_labour: 't'}})
         const vacancyNum = vacancy.length
 
-        res.render('../views/alumni/alumniTrack', { title: 'BATS | Alumni Track', alumniNGNum, userNum, alumniDiasNum, vacancyNum, alumni:'', userUUId: req.user.uuid})
+        res.render('../views/alumni/alumniTrack', { title: 'BATS | Alumni Track', alumniNGNum, name: req.user.first_name, userNum, alumniDiasNum, vacancyNum, alumni:'', userUUId: req.user.uuid})
 
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
@@ -47,11 +47,11 @@ router.get('/address', async (req, res) => {
 })
 
 router.get('/about', (req, res) => {
-    res.render('../views/alumni/alumniAbout', { title: 'BATS | Alumni About us', userUUId: req.user.uuid})
+    res.render('../views/alumni/alumniAbout', { title: 'BATS | Alumni About us',name: req.user.first_name, userUUId: req.user.uuid})
 })
 
 router.get('/contact', (req, res) => {
-    res.render('../views/alumni/alumniContact', { title: 'BATS | Alumni Contact', userUUId: req.user.uuid})
+    res.render('../views/alumni/alumniContact', { title: 'BATS | Alumni Contact',name: req.user.first_name, userUUId: req.user.uuid})
 })
 
 router.get("/search", async (req, res) => {
@@ -65,14 +65,14 @@ router.get("/search", async (req, res) => {
                 const alumni = await bats_users.findAll({where: {first_name: { [Op.like]: '%'+ search + '%'}}})
                 const userNum = alumni.length
 
-                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, userUUId: req.user.uuid})
+                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni,name: req.user.first_name, userNum, userUUId: req.user.uuid})
             }
             if(filter == 'last_name'){
     
                 const alumni = await bats_users.findAll({where: {last_name: { [Op.like]: '%'+ search + '%'}}})
                 const userNum = alumni.length
                
-                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, userUUId: req.user.uuid})
+                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni,name: req.user.first_name, userNum, userUUId: req.user.uuid})
 
             }
 
@@ -81,13 +81,13 @@ router.get("/search", async (req, res) => {
                 const alumni = await bats_users.findAll({where: Sequelize.where(Sequelize.fn('year', Sequelize.col('grad_year')), 2020)})
                 const userNum = alumni.length
                 
-                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, userUUId: req.user.uuid})
+                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, name: req.user.first_name, userUUId: req.user.uuid})
 
             }else{
                 const searchResult = await alumni.findAll({where: {first_name: { [Op.like]: '%'+ search + '%'}}})
                 const userNum = alumni.length
                 
-                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, userUUId: req.user.uuid})
+                return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, userNum, name: req.user.first_name,userUUId: req.user.uuid})
             }
             
 
@@ -109,7 +109,7 @@ router.get('/search/all', async (req, res) => {
         const alumniDias = 0
         const alumniNear = 0
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, alumniNear, userNum, alumniNG, alumniDias, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni,name: req.user.first_name, alumniNear, userNum, alumniNG, alumniDias, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -123,7 +123,7 @@ router.get('/search/nigeria', async (req, res) => {
         const alumniNG = await bats_users.findAll({where: { country: "Nigeria" || "NG"}})
         const alumniNGNum = alumniNG.length
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumni, alumniNear, alumniNG, alumniNGNum, alumniDias, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumni,name: req.user.first_name, alumniNear, alumniNG, alumniNGNum, alumniDias, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -137,7 +137,7 @@ router.get('/search/diaspora', async (req, res) => {
         const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: "Nigeria"}}})
         const alumniDiasNum = alumniDias.length
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni, alumniNG, alumniDias, alumniDiasNum, alumniNear, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni,name: req.user.first_name, alumniNG, alumniDias, alumniDiasNum, alumniNear, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -152,7 +152,7 @@ router.get('/search/vacancy', async (req, res) => {
         const vacancy = await bats_users.findAll({where: { emp_of_labour: 't'}})
         const vacancyNum = vacancy.length      
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', vacancy, alumni, alumniDias, alumniNG, alumniNear, vacancyNum, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', vacancy, alumni,name: req.user.first_name, alumniDias, alumniNG, alumniNear, vacancyNum, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -166,7 +166,7 @@ router.get('/search/near', async (req, res) => {
         const alumniDias = 0
         const alumniNear = await bats_users.findAll({where: { country: userCountry}})   
 
-        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumniNear, alumni, alumniDias, alumniNG, userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumniNear, alumni,name: req.user.first_name, alumniDias, alumniNG, userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
@@ -179,7 +179,7 @@ router.get('/:uuid', async (req, res) => {
 
     const alumni = await bats_users.findOne({where: {uuid}})
 
-    return res.render('../views/alumni/alumniProfile', { title: `BATS | ${alumni.first_name} ${alumni.last_name}`, alumni, userUUId: req.user.uuid})
+    return res.render('../views/alumni/alumniProfile', { title: `BATS | ${alumni.first_name} ${alumni.last_name}`, name: req.user.first_name,alumni, userUUId: req.user.uuid})
 })
 
 router.get('/me/:uuid', async (req, res) => {
@@ -188,12 +188,12 @@ router.get('/me/:uuid', async (req, res) => {
 
     const alumni = await bats_users.findOne({where: {uuid}})
 
-    return res.render('../views/alumni/alumniUserProfile', { title: `BATS | My profile`, alumni, userUUId: req.user.uuid})
+    return res.render('../views/alumni/alumniUserProfile', { title: `BATS | My profile`, alumni, name: req.user.first_name,userUUId: req.user.uuid})
 })
 
 router.get('/profile/update', async (req, res) => {
     try{
-        return res.render('../views/alumni/alumniUpdate', { title: 'BATS | Profile Update', alumni: req.user,  userUUId: req.user.uuid})
+        return res.render('../views/alumni/alumniUpdate', { title: 'BATS | Profile Update', alumni: req.user,name: req.user.first_name,  userUUId: req.user.uuid})
     }catch(err){
         return res.status(500).json({error: 'something went wrong'})
     }
