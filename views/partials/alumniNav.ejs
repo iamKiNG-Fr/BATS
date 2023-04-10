@@ -13,9 +13,11 @@
             <a href="/alumni/contact">Contact</a>
         </div>
         <div class="navright">
-            <p>Welcome,</p>
-            <a onclick="userOptions()"><%= name %></a>
-            <div class="user-options" onmouseleave="remoneOptions()" onkeydown="remoneOptions()">
+            <div class="btncont">
+                <p>Welcome,</p>
+                <a onclick="userOptions()" class="userbtn"><%= name %></a>
+            </div>
+            <div id="user-options" class="user-options-content">
                 <a href="/alumni/me/<%= userUUId %>">Profile</a>
                 <a href="/logout">Logout</a>
             </div>

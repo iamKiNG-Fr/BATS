@@ -8,10 +8,19 @@ function myFunction() {
 }
 
 function userOptions(){
-  
-  document.querySelector(".user-options").style.display = "flex"
+  console.log("here");
+  document.getElementById("user-options").classList.toggle("show");
 }
-function remoneOptions(){
-  
-  document.querySelector(".user-options").style.display = "none"
+
+window.onclick = function(event) {
+  if (!event.target.matches('.userbtn')) {
+    var dropdowns = document.getElementsByClassName("user-options-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
 }
