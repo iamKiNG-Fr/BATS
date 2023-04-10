@@ -12,3 +12,4 @@ function initMap(){
         map: map
     })
 }
+
