@@ -25,7 +25,7 @@ const getCords = async () => {
                 address,
                 key : 'AIzaSyAy5fA7ARYOjHt7-Csb7fI8ypCVB25ZuvE'
             }})
-            // console.log(promise);
+            console.log(promise);
             const corLat = promise.data.results[0].geometry.location
             // console.log(corLat);
 
