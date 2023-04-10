@@ -21,9 +21,9 @@ router.get('/track', async (req, res) => {
     try{        
         const alumni = await bats_users.findAll()
         const userNum = alumni.length
-        const alumniNG = await bats_users.findAll({where: { country: "Nigeria" || "NG"}})
+        const alumniNG = await bats_users.findAll({where: { country: {[Op.or]: ["Nigeria", "NG"]}}})
         const alumniNGNum = alumniNG.length
-        const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: "Nigeria" || "NG"}}})
+        const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: ["Nigeria", "NG"]}}})
         const alumniDiasNum = alumniDias.length
         const vacancy = await bats_users.findAll({where: { emp_of_labour: 't'}})
         const vacancyNum = vacancy.length
