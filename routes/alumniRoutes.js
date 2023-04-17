@@ -57,7 +57,6 @@ router.get('/contact', (req, res) => {
 router.get("/search", async (req, res) => {
     try {
         const {search, filter} = req.query
-        console.log(search, filter);
         try {
 
             if(filter == 'first_name'){
@@ -120,7 +119,7 @@ router.get('/search/nigeria', async (req, res) => {
         const alumni = 0
         const alumniDias = 0
         const alumniNear = 0
-        const alumniNG = await bats_users.findAll({where: { country: "Nigeria" || "NG"}})
+        const alumniNG = await bats_users.findAll({where: { country: {[Op.or]: ["Nigeria", "NG"]}}})
         const alumniNGNum = alumniNG.length
 
         return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track',alumni,name: req.user.first_name, alumniNear, alumniNG, alumniNGNum, alumniDias, userUUId: req.user.uuid})
@@ -134,7 +133,7 @@ router.get('/search/diaspora', async (req, res) => {
         const alumni = 0
         const alumniNear = 0
         const alumniNG = 0
-        const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: "Nigeria"}}})
+        const alumniDias = await bats_users.findAll({where: { country: {[Op.not]: ["Nigeria", "NG"]}}})
         const alumniDiasNum = alumniDias.length
 
         return res.render('../views/alumni/alumniSearch', { title: 'BATS | Alumni Track', alumni,name: req.user.first_name, alumniNG, alumniDias, alumniDiasNum, alumniNear, userUUId: req.user.uuid})

@@ -19,7 +19,7 @@
         <div class="contactform">
             <h2>Reach Out to Us</h2>
             <div class="form">
-                <form action="">
+                <form class="contact-form">
                     <div class="input">
                         <label for="name">Name</label>
                         <input type="text" id="name">
@@ -29,8 +29,12 @@
                         <input type="email" id="email">
                     </div>
                     <div class="input">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject">
+                    </div>
+                    <div class="input">
                         <label for="help">How can we help?</label>
-                        <textarea name="" id="help" cols="30" rows="10"></textarea>
+                        <textarea name="" id="message" cols="30" rows="10"></textarea>
                     </div>
                     <button type="submit">Send!</button>
                 </form>
@@ -40,6 +44,7 @@
     <script src="/js/babcockmap.js" defer></script>
     <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDV69k72qfUuFQhH-SMAksXBjPXrGMOVYE&callback=initMap" defer></script>
+    <script src="https://smtpjs.com/v3/smtp.js" defer></script>
     <%- include('../partials/alumniFooter.ejs') %>
 </body>
 </html>

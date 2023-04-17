@@ -15,11 +15,15 @@
                 </div>
                 <div>
                     <p>Contact Info</p>
-                    <h3><%= alumni.email %></h3>
+                    <h3><a href="mailto:"><%= alumni.email %></a> , <a href="tel:+234"><%= alumni.phone %></a></h3>
                 </div>
                 <div>
                     <p>Set</p>
                     <h3><%= alumni.grad_year %></h3>
+                </div>
+                <div>
+                    <p>Current Country</p>
+                    <h3><%= alumni.country %></h3>
                 </div>
                 <div>
                     <p>Badge</p>
@@ -28,7 +32,7 @@
                     </div>
                 </div>
             </div>
-            <img src="" alt="alumni pic">
+            <!-- <img src="" alt="alumni pic"> -->
         </div>
     
         <span class="title">Professional Information</span>

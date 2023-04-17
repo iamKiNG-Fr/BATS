@@ -22,24 +22,24 @@
             <form action="/alumni/search" method="GET">
                 <div>
                     <div class="search-area">
-                        <input type="search" name="search" id="search" placeholder="Search Alumni..." onfocus="displayFilter()" onblur="removeFilter()">
+                        <input type="search" name="search" id="search" placeholder="Search Alumni..." onfocus="displayFilter()">
                         <button type="submit" class="search-btn">🔎</button>
                     </div>
                     <div class="search_filter">
                         <label>Search by:</label>
                         <div class="filter">
                             <div>
-                                <input type="checkbox" name="filter" id="fname" value="first_name" checked>
+                                <input type="radio" name="filter" id="fname" value="first_name" checked>
                                 <label for="fname">First Name</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="filter" id="lname" value="last_name">
+                                <input type="radio" name="filter" id="lname" value="last_name">
                                 <label for="lname">Last Name</label>
                             </div>
-                            <div>
+                            <!-- <div>
                                 <input type="checkbox" name="filter" id="lname" value="grad_year">
                                 <label for="lname">Grad. Year</label>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
