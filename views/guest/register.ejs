@@ -44,7 +44,7 @@
                             <input type="date" name="dob" id="dob" min="1900-01-01" max="2007-12-31" value="<%= alumni.dob %>" required>
                         </div>
                         <div>
-                            <select name="gender" id="gender" >
+                            <select name="gender" id="gender" required>
                                 <option> Gender</option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -59,7 +59,7 @@
                         </div>
                         <div>
                             <div>
-                                <select name="country" id="country">
+                                <select name="country" id="country" required>
                                     <option>select country*</option>
                                     <option value="AF">Afghanistan</option>
                                     <option value="AX">Aland Islands</option>
@@ -316,7 +316,7 @@
                                 </select>
                             </div>
                             <div>
-                                <input type="text" name="state_of_residence" id="state_of_residence" placeholder="State*" value="<%= alumni.state_of_residence %>">
+                                <input type="text" name="state_of_residence" id="state_of_residence" placeholder="State*" value="<%= alumni.state_of_residence %>" required>
                             </div>
                         </div>
                         <!-- for uploading images -->
@@ -327,13 +327,13 @@
                     </div>   
                     <div class="school-info tab">
                         <div>
-                            <select name="program" id="program">
+                            <select name="program" id="program" required>
                                 <option selected> Program*
                                 </option>
                             </select>
                         </div>
                         <div>
-                            <select name="course" id="course" >
+                            <select name="course" id="course" required>
                                 <option selected> course</option>
                             </select>
                         </div>
@@ -341,7 +341,7 @@
                             <input type="text" name="matric" id="matric" placeholder="Matric Number*" value="<%= alumni.matric %>"required>
                         </div>
                         <div>
-                            <select name="role" id="role" >
+                            <select name="role" id="role" required>
                                 <option selected> Role if any</option>
                                 <option value="BUSA"> BUSA official</option>
                                 <option value="BUCC"> BUCC official</option>
@@ -351,10 +351,10 @@
                         </div> 
                         <div class="date">
                             <label for="gradyear">Grad. Year</label>
-                            <input type="month" name="grad_year" id="gradyear" min="1950-01-01" value="<%= alumni.grad_year %>">
+                            <input type="month" name="grad_year" id="gradyear" min="1950-01-01" value="<%= alumni.grad_year %>" required>
                         </div>
                         <div>
-                            <select name="mascot" id="mascot" >
+                            <select name="mascot" id="mascot" required>
                                 <option selected> Class Name</option>
                                 <option value="BUSA"> Zircon</option>
                                 <option value="BUCC"> Aquila</option>
@@ -365,12 +365,13 @@
                     </div> 
                     <div class="professional-info tab">
                         <div>
-                            <input type="text" name="occupation" id="occupation" placeholder="Current Occupation" value="<%= alumni.occupation %>">
+                            <input type="text" name="occupation" id="occupation" placeholder="Current Occupation" value="<%= alumni.occupation %>" required>
                         </div>
                         <div>
-                            <input type="text" name="job_desc" id="job_desc" placeholder="Job Description" value="<%= alumni.job_desc %>">
+                            <input type="text" name="job_desc" id="job_desc" placeholder="Job Description" value="<%= alumni.job_desc %>" required>
                         </div>
                         <div class="emp_of_labour">
+                            <p style="font-size: 11px; color: rgb(156, 156, 255);"><i>kindly select if you are an employer or not*</i></p>
                             <label for="">Are you an employer of employer of labour?</label>
                             <div class="emp_labour">
                                 <div>
